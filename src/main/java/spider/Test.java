@@ -1,9 +1,16 @@
 package spider;
 
-//import sun.net.www.http.HttpClient;
-import org.apache.commons.httpclient.*;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
 import java.io.*;
-import java.net.URL;
 import java.nio.charset.Charset;
 
 /**
@@ -20,43 +27,50 @@ public class Test {
             FileWriter fileWriter = new FileWriter(file);
 
 
-            /*******爬取内容,存储在stringBuffer中******/
-
-            StringBuffer stringBuffer = new StringBuffer();
-            String realUrl = "http://www.jjwxc.net/onebook.php?novelid=3024023&chapterid=2";
-            // 获取目标url的response
-//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(realUrl).openStream()));
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(realUrl).openStream(), Charset.forName("gb2312")));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuffer.append(line);
-            }
-            fileWriter.write(stringBuffer.toString());
-            bufferedReader.close();
-
-            String test = stringBuffer.toString();
-//            byte[] bytes = test.getBytes("utf-8");
-            String utf8 = new String(test.getBytes("gb2312"), "gb2312");
-            System.out.println(utf8);
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
+        try {
+            httpClientGetWebPage();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void testGet() throws Exception {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpGet httpGet = new HttpGet("http://www.hao123.com");
-        HttpResponse response = httpClient.execute(httpGet);
-        HttpEntity entity = response.getEntity();
-        if (entity != null) {
-            InputStream instream = entity.getContent();
-            int l;
-            byte[] tmp = new byte[2048];
-            while ((l = instream.read(tmp)) != -1) {
-                System.out.println(new String(tmp, 0, l, "utf-8"));
+
+    public static void httpClientGetWebPage() {
+
+        try {
+            // 工厂模式获得httpClient
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            // 创建httpget.
+            HttpGet httpget = new HttpGet("http://www.jjwxc.net/onebook.php?novelid=3024023&chapterid=18");
+            System.out.println("executing request " + httpget.getURI());
+            // 执行get请求.
+            CloseableHttpResponse response = httpClient.execute(httpget);
+            // 获取响应实体
+            HttpEntity entity = response.getEntity();
+            // 打印响应状态
+            System.out.println(response.getStatusLine());
+            if (entity != null) {
+                // 打印响应内容
+                System.out.println("Response content: " + EntityUtils.toString(entity, Charset.forName("gb2312")));
             }
+
+            response.close();
+            // 关闭连接,释放资源
+            httpClient.close();
+
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

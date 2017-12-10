@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class Spider_QiDian_Main {
     public static void main(String[] args) {
         /** 
-        * @Description: 本程序用于爬取起点中文网上的小说的免费部分，
+        * @Description: 本程序用于爬取Qidian小说的免费部分，
          * 只需传入想要下载的小说点击“免费试读”后的URL，就能下载全部免费章节
         */        
         // 爬取参数
@@ -29,17 +29,18 @@ public class Spider_QiDian_Main {
         // 网页编码
         Charset charsetName = Charset.forName("utf-8");
         // 存储地址
-        String destFilePath = "E:\\Code\\JavaStudy\\novel";
+        String destFilePath = "E:\\Code\\JavaStudy\\novel_Qidian";
 
 
         try {
+            //如果目录文件夹不存在，则创建
             File testPath = new File(destFilePath);
             if ( !testPath.exists()){
                 testPath.mkdirs();
             }
+            // 如果目标文件不在则创建
             String fileName = "\\" + getRandomName() + ".txt";
             File destFile = new File(destFilePath + fileName);
-            // 如果目标文件不在则删除
             if ( !destFile.exists() ) {
                 destFile.createNewFile();
             }
@@ -122,7 +123,11 @@ public class Spider_QiDian_Main {
             Matcher matcher = contentPat.matcher(resultContent);
             if (matcher.find()) {
                 String[] contentArr = matcher.group(1).split("\\s*<p>\\s*");
+//                int count = 0;
                 for (String  paragraph : contentArr) {
+//                    count ++;
+//                    bufferedWriter.write("paragraph "+count+" : "+paragraph);
+                    paragraph = paragraph.trim();
                     bufferedWriter.write(paragraph);
                     bufferedWriter.newLine();
                 }
