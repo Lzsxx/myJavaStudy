@@ -1,8 +1,5 @@
 package spider;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
