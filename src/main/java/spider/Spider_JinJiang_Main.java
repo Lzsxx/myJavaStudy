@@ -27,7 +27,7 @@ public class Spider_JinJiang_Main {
          * 只需传入想要下载的小说的封面URL，就能下载全部免费章节
          */
         // 爬取参数
-        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3349022";
+        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3137954";
         // html里小说名字的标志
         String novelMark = "<span itemprop=\"articleSection\">(.*?)</span>";
         // html里章节标题的标志
@@ -42,6 +42,7 @@ public class Spider_JinJiang_Main {
         String destFilePath = "E:\\Code\\JavaStudy\\novel_Jinjiang";
         int chapterCount = 0;
         int vipBegin = 0;
+
         try {
             //如果目录文件夹不存在，则创建
             File testPath = new File(destFilePath);
@@ -67,7 +68,6 @@ public class Spider_JinJiang_Main {
             bufferedWriter.close();
             //爬取完成后重命名整理，有同样名称时失败，会保持原名
             destFile.renameTo(new File(destFilePath + "\\" + returnNovelName + ".txt"));
-
             long endTime = System.currentTimeMillis();
             System.out.println("用时 " + (endTime - startTime) / 1000 + "秒...");
 
@@ -110,10 +110,20 @@ public class Spider_JinJiang_Main {
                 /*****判断VIP章节数，确定结束爬取的位置*****/
                 Pattern stopPat = Pattern.compile(stopMark);
                 Matcher matcherStop = stopPat.matcher(resultContent);
+                // 如果是入V章节，则有Vip标志，只爬取免费章节
                 if (matcherStop.find()) {
                     String vipStr = matcherStop.group(1).split("'")[1].split("_")[1];
                     vipBegin = Integer.valueOf(vipStr);
                     System.out.println(vipStr);
+                }else {
+                    // 如果没有vip标志，可能是全文免费，此时要自己计数章节数目，爬取全部章节
+                    Pattern chapterCountPat = Pattern.compile("<span itemprop=\"headline\">\\s*?<div style=\"float:left\">\\s*<a itemprop=\"url\"\\s*");
+                    Matcher matcherChapterCount = chapterCountPat.matcher(resultContent);
+                    while (matcherChapterCount.find()) {
+                        vipBegin ++;
+                    }
+                    System.out.println(vipBegin + "  Chapter All Free!");
+                    vipBegin ++;
                 }
             }
 

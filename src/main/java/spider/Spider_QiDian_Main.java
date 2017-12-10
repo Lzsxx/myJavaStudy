@@ -17,7 +17,7 @@ public class Spider_QiDian_Main {
          * 只需传入想要下载的小说点击“免费试读”后的URL，就能下载全部免费章节
         */        
         // 爬取参数
-        String baseUrl = "https://read.qidian.com/chapter/rJgN8tJ_cVdRGoWu-UQg7Q2/eSlFKP1Chzg1";
+        String baseUrl = "https://read.qidian.com/chapter/nIWaLPbTV4Q1/pAcF30Aubh81";
         // html里小说名字的标志
         String novelMark = "<a.*id=\"bookImg\".*?>(.*?)</a>";       //第一个？必须，这样才能非贪心匹配
         // html里章节标题的标志
