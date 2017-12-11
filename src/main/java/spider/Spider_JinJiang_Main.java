@@ -27,7 +27,7 @@ public class Spider_JinJiang_Main {
          * 只需传入想要下载的小说的封面URL，就能下载全部免费章节
          */
         // 爬取参数
-        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3137954";
+        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=2766439";
         // html里小说名字的标志
         String novelMark = "<span itemprop=\"articleSection\">(.*?)</span>";
         // html里章节标题的标志
@@ -40,6 +40,8 @@ public class Spider_JinJiang_Main {
         Charset charsetName = Charset.forName("gb2312");
         // 存储地址
         String destFilePath = "E:\\Code\\JavaStudy\\novel_Jinjiang";
+        // 如果存在同名，是否覆盖？默认不覆盖
+        Boolean coverOld = true;
         int chapterCount = 0;
         int vipBegin = 0;
 
@@ -62,12 +64,24 @@ public class Spider_JinJiang_Main {
 
             System.out.println("开始爬取数据...");
             long startTime = System.currentTimeMillis();
+
             // 判断是否是第一次调用spider，如果是，则需要获取并写入书名
             String returnNovelName = spiderGo_HttpClient(chapterCount,vipBegin, baseUrl, bufferedWriter,novelMark, titleMark, contentMark,stopMark, charsetName);
             // 由于不能重复关闭，所以不能在递归函数中关闭，只好移到最外层函数结束之后再关闭
             bufferedWriter.close();
+            // 重命名之前，如果已有同名文件，则判断配置，如果要求覆盖生成，则先删除之前的文件
+            String formalFileName = destFilePath + "\\" + returnNovelName + ".txt";
+            if (coverOld){
+                String alreayExistFileName = formalFileName;
+                File alreayExistFile = new File(alreayExistFileName);
+                if ( alreayExistFile.exists() ) {
+                    alreayExistFile.delete();
+                    System.out.println("Delete Old File " + alreayExistFileName);
+                }
+            }
             //爬取完成后重命名整理，有同样名称时失败，会保持原名
-            destFile.renameTo(new File(destFilePath + "\\" + returnNovelName + ".txt"));
+            destFile.renameTo(new File(formalFileName));
+
             long endTime = System.currentTimeMillis();
             System.out.println("用时 " + (endTime - startTime) / 1000 + "秒...");
 
