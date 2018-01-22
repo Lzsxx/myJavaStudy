@@ -1,4 +1,4 @@
-package Algorithm.UseTwoStackAsQueue;
+package algorithm.UseTwoStackAsQueue;
 
 import java.util.Stack;
 

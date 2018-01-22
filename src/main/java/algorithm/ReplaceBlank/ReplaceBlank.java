@@ -1,7 +1,5 @@
-package Algorithm.ReplaceBlank;
+package algorithm.ReplaceBlank;
 
-
-import sun.text.resources.cldr.ti.FormatData_ti;
 
 //题目描述
 // 请实现一个函数，将一个字符串中的空格替换成“%20”。

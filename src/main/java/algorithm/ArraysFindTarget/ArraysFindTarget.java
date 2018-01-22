@@ -1,4 +1,4 @@
-package Algorithm.ArraysFindTarget;
+package algorithm.ArraysFindTarget;
 
 import java.util.Arrays;
 

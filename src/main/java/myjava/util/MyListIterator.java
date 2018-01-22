@@ -1,8 +1,8 @@
 package myjava.util;
 
-public interface ListIterator<AnyType> extends Iterator<AnyType> {
+public interface MyListIterator<AnyType> extends MyIterator<AnyType> {
     AnyType previous();
     boolean hasPrevious();
-    void add(AnyType x);
+    void add(AnyType newValue);
     void set(AnyType newValue);
 }

@@ -1,4 +1,4 @@
-package Algorithm.PrintLinkFromTailToHead;
+package algorithm.PrintLinkFromTailToHead;
 
 
 import java.util.Stack;

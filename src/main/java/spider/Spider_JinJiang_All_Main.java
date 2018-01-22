@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Administrator on 2017/12/9.
  */
-public class Spider_JinJiang_Main {
+public class Spider_JinJiang_All_Main {
     public static void main(String[] args) {
         /**
          * @Description: 本程序用于爬取Jinjiang小说的免费部分，
@@ -28,14 +28,16 @@ public class Spider_JinJiang_Main {
          */
         // 爬取参数
         String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3024513";
+        // 下载到第几章后停止
+        int vipBegin = 46;
         // html里小说名字的标志
         String novelMark = "<span itemprop=\"articleSection\">(.*?)</span>";
         // html里章节标题的标志
         String titleMark = "<option value=\"\">(.*?)</option>";
         // html里正文的标志
         String contentMark = "<div style=\"clear:both;\"></div>\\s*?(.*?)\\s*?<div";
-        // html里爬取到VIP章节的标志
-        String stopMark = "<a itemprop=\"url\" style=\"cursor:pointer\" onclick=\"(vip_buy\\('vip_\\d+'\\))\"";
+        // html里爬取到VIP章节的标志(已废弃
+        String stopMark = "";
         // 网页编码
         Charset charsetName = Charset.forName("gb2312");
         // 存储地址
@@ -44,7 +46,6 @@ public class Spider_JinJiang_Main {
         // 如果存在同名，是否覆盖？默认不覆盖
         Boolean coverOld = true;
         int chapterCount = 0;
-        int vipBegin = 0;
 
         try {
             //如果目录文件夹不存在，则创建
@@ -100,7 +101,7 @@ public class Spider_JinJiang_Main {
      */
 
     public static String spiderGo_HttpClient(int chapterCount,int vipBegin, String baseUrl, BufferedWriter bufferedWriter, String novelNameMark,
-                                  String titleMark, String contentMark , String stopMark, Charset charsetName) {
+                                             String titleMark, String contentMark , String stopMark, Charset charsetName) {
         System.out.println("chapter:"+chapterCount);
         String returnNovelName = "novel";
         try {
@@ -122,24 +123,6 @@ public class Spider_JinJiang_Main {
                     bufferedWriter.newLine();
                 }
 
-                /*****判断VIP章节数，确定结束爬取的位置*****/
-                Pattern stopPat = Pattern.compile(stopMark);
-                Matcher matcherStop = stopPat.matcher(resultContent);
-                // 如果是入V章节，则有Vip标志，只爬取免费章节
-                if (matcherStop.find()) {
-                    String vipStr = matcherStop.group(1).split("'")[1].split("_")[1];
-                    vipBegin = Integer.valueOf(vipStr);
-                    System.out.println(vipStr);
-                }else {
-                    // 如果没有vip标志，可能是全文免费，此时要自己计数章节数目，爬取全部章节
-                    Pattern chapterCountPat = Pattern.compile("<span itemprop=\"headline\">\\s*?<div style=\"float:left\">\\s*<a itemprop=\"url\"\\s*");
-                    Matcher matcherChapterCount = chapterCountPat.matcher(resultContent);
-                    while (matcherChapterCount.find()) {
-                        vipBegin ++;
-                    }
-                    System.out.println(vipBegin + "  Chapter All Free!");
-                    vipBegin ++;
-                }
             }
 
             /*** 标题正则匹配***/
