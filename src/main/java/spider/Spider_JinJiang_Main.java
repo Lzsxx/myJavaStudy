@@ -27,7 +27,7 @@ public class Spider_JinJiang_Main {
          * 只需传入想要下载的小说的封面URL，就能下载全部免费章节
          */
         // 爬取参数
-        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3024513";
+        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3090427";
         // html里小说名字的标志
         String novelMark = "<span itemprop=\"articleSection\">(.*?)</span>";
         // html里章节标题的标志

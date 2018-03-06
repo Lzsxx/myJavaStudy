@@ -1,12 +1,7 @@
-package myjava.util;
-
-import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType;
-import org.omg.CORBA.Any;
+package myjava.util.list;
 
 import java.util.ConcurrentModificationException;
-import java.util.Currency;
 import java.util.NoSuchElementException;
-import java.util.jar.JarEntry;
 
 public class MyLinkedList<AnyType> implements MyList<AnyType> {
     private int theSize = 0;

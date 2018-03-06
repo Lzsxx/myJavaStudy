@@ -1,9 +1,8 @@
-package myjava.utilTest;
+package myjava.utilTest.list;
 
-import com.sun.deploy.panel.ITreeNode;
-import myjava.util.MyIterator;
-import myjava.util.MyLinkedList;
-import myjava.util.MyListIterator;
+import myjava.util.list.MyIterator;
+import myjava.util.list.MyLinkedList;
+import myjava.util.list.MyListIterator;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
