@@ -176,8 +176,6 @@ public class BinarySearchTree  {
                 queue.add(p.right);
             }
         }
-
-
     }
 
 }

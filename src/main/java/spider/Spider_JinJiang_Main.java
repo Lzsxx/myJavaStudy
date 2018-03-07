@@ -39,7 +39,8 @@ public class Spider_JinJiang_Main {
         // 网页编码
         Charset charsetName = Charset.forName("gb2312");
         // 存储地址
-        String destFilePath = "E:\\Code\\JavaStudy\\novel_Jinjiang";
+//        String destFilePath = "E:\\Code\\JavaStudy\\novel_Jinjiang";  // win
+        String destFilePath = "/Users/lzs/Documents/fiction/";      // mac
 
         // 如果存在同名，是否覆盖？默认不覆盖
         Boolean coverOld = true;
@@ -53,7 +54,8 @@ public class Spider_JinJiang_Main {
                 testPath.mkdirs();
             }
             //如果文件不存在，则创建
-            String fileName = "\\" + getRandomName() + ".txt";
+//            String fileName = "\\" + getRandomName() + ".txt";    // win
+            String fileName = getRandomName() + ".txt";      // mac
             File destFile = new File(destFilePath + fileName);
             if ( !destFile.exists() ) {
                 destFile.createNewFile();
@@ -71,7 +73,8 @@ public class Spider_JinJiang_Main {
             // 由于不能重复关闭，所以不能在递归函数中关闭，只好移到最外层函数结束之后再关闭
             bufferedWriter.close();
             // 重命名之前，如果已有同名文件，则判断配置，如果要求覆盖生成，则先删除之前的文件
-            String formalFileName = destFilePath + "\\" + returnNovelName + ".txt";
+//            String formalFileName = destFilePath + "\\" + returnNovelName + ".txt";//win
+            String formalFileName = destFilePath + returnNovelName + ".txt";//mac
             if (coverOld){
                 String alreayExistFileName = formalFileName;
                 File alreayExistFile = new File(alreayExistFileName);
