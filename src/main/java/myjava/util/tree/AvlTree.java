@@ -142,6 +142,9 @@ public class AvlTree {
         t.right = LL_Rotate(t.right);
         return RR_Rotate(t);
     }
+
+
+    //// 未测试
     public AvlNode remove(int x, AvlNode t ){
         // 如果初始传入空树，返回null
         if (t == null)
@@ -169,6 +172,7 @@ public class AvlTree {
             // 所以这里也不用判断是从左路下来的还是从右路下来的
             t = (t.left != null ) ? t.left : t.right;
         }
+        t.height = Max(getHeight(t.left), getHeight(t.right)) + 1;
         return balance(t);  // 比普通二叉查找树多了这里
     }
     private AvlNode findMin(AvlNode t ){

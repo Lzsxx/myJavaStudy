@@ -4,6 +4,10 @@ import myjava.util.tree.AvlTree;
 
 public class AvlTree_Test {
     public static void main(String[] args) {
+        example_2();
+    }
+
+    public static void example_1(){
         AvlTree avlTree = new AvlTree();
         avlTree.insert(3);
         avlTree.insert(2);
@@ -33,6 +37,26 @@ public class AvlTree_Test {
         avlTree.insert(8);
         // 双旋转
         avlTree.insert(9);
+
+        avlTree.printTree(avlTree.getRoot());
+    }
+
+    public static void example_2(){
+        AvlTree avlTree = new AvlTree();
+        avlTree.insert(10);
+        avlTree.insert(85);
+        avlTree.insert(15);
+        avlTree.insert(70);
+        avlTree.insert(20);
+        avlTree.insert(60);
+        avlTree.insert(30);
+        avlTree.insert(50);
+        avlTree.insert(65);
+        avlTree.insert(80);
+        avlTree.insert(90);
+        avlTree.insert(40);
+        avlTree.insert(5);
+        avlTree.insert(55);
 
         avlTree.printTree(avlTree.getRoot());
     }
