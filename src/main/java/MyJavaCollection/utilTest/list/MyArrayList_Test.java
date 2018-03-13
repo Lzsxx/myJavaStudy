@@ -1,15 +1,15 @@
-package myjava.utilTest.list;
+package MyJavaCollection.utilTest.list;
 
-import myjava.util.list.MyArrayList;
-import myjava.util.list.MyListIterator;
+import MyJavaCollection.util.list.MyArrayList;
+import MyJavaCollection.util.list.MyListIterator;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
 
-public class MyArrayList_Test_3rd {
+public class MyArrayList_Test {
     public static void main(String[] args) {
         /**
-         * Test set() remove()
+         * Test next() previous()
          */
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         myArrayList.add(new Integer(0));
@@ -20,18 +20,14 @@ public class MyArrayList_Test_3rd {
         MyListIterator myItr = myArrayList.listIterator();
         System.out.println(myItr.next());   // 0
         System.out.println(myItr.next());   // 1
+        System.out.println(myItr.previous());   // 1
+        System.out.println(myItr.next());   // 1
         System.out.println(myItr.next());   // 2
-        myItr.set(-1);
-        System.out.println(myItr.previous());   // -1
-//        System.out.println(myItr.next());   // -1
-//        System.out.println(myItr.next());   // 3
-        // 此时是 0 1 -1 3 4 （指向 -1 ， remove会向前移动一位再移除，所以被移除的是1，余下 0 -1 3 4
-        myItr.remove();
+        System.out.println(myItr.next());   // 3
+        System.out.println(myItr.next());   // 4
+        System.out.println(myItr.previous());   // 4
+        System.out.println(myItr.previous());   // 3
 
-        MyListIterator myItr2 = myArrayList.listIterator();
-        while (myItr2.hasNext()){
-            System.out.println(myItr2.next()); // 0 1 -1 3 4
-        }
 
         System.out.println("----------------");
 
@@ -45,17 +41,12 @@ public class MyArrayList_Test_3rd {
         ListIterator itr = arrayList.listIterator();
         System.out.println(itr.next());   // 0
         System.out.println(itr.next());   // 1
+        System.out.println(itr.previous());   // 1
+        System.out.println(itr.next());   // 1
         System.out.println(itr.next());   // 2
-        itr.set(-1);
-        System.out.println(itr.previous());   // -1
-//        System.out.println(itr.next());   // -1
-//        System.out.println(itr.next());   // 3
-        itr.remove();
-
-        ListIterator itr2 = arrayList.listIterator();
-        while (itr2.hasNext()){
-            System.out.println(itr2.next());
-        }
-
+        System.out.println(itr.next());   // 3
+        System.out.println(itr.next());   // 4
+        System.out.println(itr.previous());   // 4
+        System.out.println(itr.previous());   // 3
     }
 }

@@ -1,4 +1,4 @@
-package myjava.util.list;
+package MyJavaCollection.util.list;
 
 public interface MyList<AnyType> extends MyCollection<AnyType> {
     AnyType set(int idx, AnyType newValue);

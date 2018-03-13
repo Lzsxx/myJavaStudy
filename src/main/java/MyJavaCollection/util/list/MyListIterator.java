@@ -1,4 +1,4 @@
-package myjava.util.list;
+package MyJavaCollection.util.list;
 
 public interface MyListIterator<AnyType> extends MyIterator<AnyType> {
     AnyType previous();

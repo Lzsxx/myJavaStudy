@@ -1,4 +1,4 @@
-package myjava.util.list;
+package MyJavaCollection.util.list;
 
 public interface MyIterator<AnyType> {
      AnyType next();

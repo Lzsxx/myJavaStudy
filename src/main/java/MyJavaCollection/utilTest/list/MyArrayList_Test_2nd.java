@@ -1,7 +1,7 @@
-package myjava.utilTest.list;
+package MyJavaCollection.utilTest.list;
 
-import myjava.util.list.MyArrayList;
-import myjava.util.list.MyListIterator;
+import MyJavaCollection.util.list.MyArrayList;
+import MyJavaCollection.util.list.MyListIterator;
 
 import java.util.ArrayList;
 import java.util.ListIterator;

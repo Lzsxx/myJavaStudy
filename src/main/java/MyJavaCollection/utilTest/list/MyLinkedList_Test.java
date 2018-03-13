@@ -1,8 +1,8 @@
-package myjava.utilTest.list;
+package MyJavaCollection.utilTest.list;
 
-import myjava.util.list.MyIterator;
-import myjava.util.list.MyLinkedList;
-import myjava.util.list.MyListIterator;
+import MyJavaCollection.util.list.MyIterator;
+import MyJavaCollection.util.list.MyLinkedList;
+import MyJavaCollection.util.list.MyListIterator;
 
 import java.util.LinkedList;
 import java.util.ListIterator;

@@ -1,8 +1,5 @@
-package myjava.util.tree;
+package MyJavaCollection.util.tree;
 
-import sun.plugin2.message.ShutdownJVMMessage;
-
-import javax.sound.midi.Soundbank;
 import java.util.LinkedList;
 import java.util.Queue;
 

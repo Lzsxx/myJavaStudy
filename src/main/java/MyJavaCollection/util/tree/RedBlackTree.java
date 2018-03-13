@@ -1,4 +1,4 @@
-package myjava.util.tree;
+package MyJavaCollection.util.tree;
 import java.util.Comparator;
 
 public class RedBlackTree<E> {

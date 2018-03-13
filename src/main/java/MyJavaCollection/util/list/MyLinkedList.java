@@ -1,4 +1,4 @@
-package myjava.util.list;
+package MyJavaCollection.util.list;
 
 import java.util.ConcurrentModificationException;
 import java.util.NoSuchElementException;

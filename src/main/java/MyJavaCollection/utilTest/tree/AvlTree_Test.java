@@ -1,6 +1,6 @@
-package myjava.utilTest.tree;
+package MyJavaCollection.utilTest.tree;
 
-import myjava.util.tree.AvlTree;
+import MyJavaCollection.util.tree.AvlTree;
 
 public class AvlTree_Test {
     public static void main(String[] args) {
