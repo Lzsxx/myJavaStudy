@@ -36,18 +36,37 @@ public class BubbleSort {
 //            }
 //        }
 
-        /***** 优化版本 *****/
-        boolean flag = true;
+        /***** 优化版本 1 *****/
+//        boolean flag = true;
+//        int n = arr.length;
+//        while (flag){   // 第一层循环
+//            flag = false;
+//            for (int j = 1; j < n; j++) {   //第二层循环
+//                if (arr[j] < arr[j - 1]){
+//                    swap(arr, j, j-1);
+//                    flag = true;
+//                }
+//            }
+//            n--;
+//        }
+
+        /***** 优化版本 2 *****/
+        /**
+        * @Description: 版本1用boolean来标注是否进行了交换，然后提前结束外层循环，而内层循环每次边界值-1
+         * 但实际上可以记录上一次最后交换的位置来进一步缩小内层循环的边界值，
+         * 版本2中flag既是是否交换的flag，又是内层循环的边界值
+        */
         int n = arr.length;
-        while (flag){   // 第一层循环
-            flag = false;
-            for (int j = 1; j < n; j++) {   //第二层循环
+        int flag = n;
+        while (flag > 0){
+            flag = 0;
+            for (int j = 1; j < n; j++){
                 if (arr[j] < arr[j - 1]){
-                    swap(arr, j, j-1);
-                    flag = true;
+                    swap(arr, j , j-1);
+                    flag = j;
                 }
             }
-            n--;
+            n = flag;
         }
 
     }
