@@ -42,12 +42,27 @@ public class InsertionSort {
 //            arr[index] = temp;
 //        }
 
-        for (int i = 1; i < arr.length ; i++) {
+        /***** 优化版本1 *****/
+//        for (int i = 1; i < arr.length ; i++) {
+//            int temp = arr[i];
+//            int j = i;
+//            while (j-1 >= 0 && temp < arr[j-1]){
+//                arr[j] = arr[j-1];
+//                j = j - 1;
+//            }
+//            arr[j] = temp;
+//        }
+        /***** 优化版本2 : 4个1需要重点注意*****/
+        int i,j;
+        for ( i = 1; i < arr.length; i++) {
             int temp = arr[i];
-            int j = i;
-            while (j-1 >= 0 && temp < arr[j-1]){
-                arr[j] = arr[j-1];
-                j = j - 1;
+            for ( j = i; j > 0; j--){   // j = j - 1
+                if (temp < arr[j - 1]){
+                    arr[j] = arr[ j - 1];   // remove to next
+                }else {
+                    System.out.println("When break.the j is:"+j);
+                    break;// 到小于等于的地方就停止
+                }
             }
             arr[j] = temp;
         }

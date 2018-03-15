@@ -20,21 +20,21 @@ public class MyLinkedList_Test {
         MyIterator<Integer> myLinkItr = myLinkedList.iterator();
         MyListIterator<Integer> myLinkListItr = myLinkedList.listIterator();
 
-        /*** Test Set() ***/
+        /*** HeapSort Set() ***/
 //        myLinkedList.set(3,2);
 //        myLinkedList.set(2,3);
 
-        /*** Test remove() ***/
+        /*** HeapSort remove() ***/
 //        myLinkedList.remove(2);
 
-        /*** Test get() ***/
+        /*** HeapSort get() ***/
 //        System.out.println(myLinkedList.get(0));
 //        System.out.println(myLinkedList.get(1));
 //        System.out.println(myLinkedList.get(2));
 //        System.out.println(myLinkedList.get(3));
 //        System.out.println(myLinkedList.get(4));
 //
-//        /*** Test ListIterator()-remove() ***/
+//        /*** HeapSort ListIterator()-remove() ***/
 //        if (myLinkListItr.hasNext()){
 //            System.out.println(myLinkListItr.next());   // 0
 //            System.out.println(myLinkListItr.next());   // 1
@@ -52,7 +52,7 @@ public class MyLinkedList_Test {
 //                System.out.println(myLinkListItr.next());
 //            }
 //        }
-//        /*** Test iterator()-add()  ***/
+//        /*** HeapSort iterator()-add()  ***/
 //        if (myLinkListItr.hasNext()){
 //            System.out.println(myLinkListItr.next());   // 0
 //            System.out.println(myLinkListItr.next());   // 1
@@ -75,16 +75,16 @@ public class MyLinkedList_Test {
 
 
 
-//        /*** Test ListIterator()-next() ***/
+//        /*** HeapSort ListIterator()-next() ***/
 //        while (myLinkListItr.hasNext()){
 //            System.out.println(myLinkListItr.next());
 //        }
-//        /*** Test ListIterator()-previous() ***/
+//        /*** HeapSort ListIterator()-previous() ***/
 //        while (myLinkListItr.hasPrevious()){
 //            System.out.println(myLinkListItr.previous());
 //        }
 
-//        /*** Test ListIterator()-previous() & next() ***/
+//        /*** HeapSort ListIterator()-previous() & next() ***/
 //        System.out.println(myLinkListItr.next());   // 0
 //        System.out.println(myLinkListItr.next());   // 1
 //        System.out.println(myLinkListItr.previous());   // 1
@@ -94,7 +94,7 @@ public class MyLinkedList_Test {
 //        System.out.println(myLinkListItr.previous());   // 1
 
 
-        System.out.println("--------Test set()--------");
+        System.out.println("--------HeapSort set()--------");
         System.out.println(myLinkListItr.next());   // 0
         System.out.println(myLinkListItr.next());   // 1
         myLinkListItr.set(-1);    // 1 变为 -1
@@ -128,7 +128,7 @@ public class MyLinkedList_Test {
 //        System.out.println(linkedList.get(3));
 //        System.out.println(linkedList.get(4));
 //
-//        /*** Test iterator()-remove()  ***/
+//        /*** HeapSort iterator()-remove()  ***/
 //        if (linkListItr.hasNext()){
 //            System.out.println(linkListItr.next());   // 0
 //            System.out.println(linkListItr.next());   // 1
@@ -149,7 +149,7 @@ public class MyLinkedList_Test {
 //            }
 //        }
 
-//        /*** Test iterator()-add()  ***/
+//        /*** HeapSort iterator()-add()  ***/
 //        if (linkListItr.hasNext()){
 //            System.out.println(linkListItr.next());   // 0
 //            System.out.println(linkListItr.next());   // 1
@@ -170,7 +170,7 @@ public class MyLinkedList_Test {
 //            }
 //        }
 
-//        /*** Test ListIterator()-previous() & next() ***/
+//        /*** HeapSort ListIterator()-previous() & next() ***/
 //        System.out.println(linkListItr.next());   // 0
 //        System.out.println(linkListItr.next());   // 1
 //        System.out.println(linkListItr.previous());   // 1
@@ -179,7 +179,7 @@ public class MyLinkedList_Test {
 //        System.out.println(linkListItr.previous());   // 2
 //        System.out.println(linkListItr.previous());   // 1
 
-        System.out.println("--------Test set()--------");
+        System.out.println("--------HeapSort set()--------");
         System.out.println(linkListItr.next());   // 0
         System.out.println(linkListItr.next());   // 1
         linkListItr.set(-1);    // 1 变为 -1
