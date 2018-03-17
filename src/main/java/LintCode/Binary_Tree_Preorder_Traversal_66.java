@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Binary_Tree_Preorder_Traversal {
+public class Binary_Tree_Preorder_Traversal_66 {
     /**** 给定的数据结构  **/
     public class TreeNode {
         public int val;

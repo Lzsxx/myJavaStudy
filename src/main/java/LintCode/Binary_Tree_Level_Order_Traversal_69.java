@@ -3,18 +3,21 @@ package LintCode;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 import sun.reflect.generics.tree.Tree;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
-public class Binary_Tree_Zigzag_Level_Order_Traversal {
+public class Binary_Tree_Level_Order_Traversal_69 {
 
-    public class TreeNode {
-        public int val;
-        public TreeNode left, right;
-        public TreeNode(int val) {
-            this.val = val;
-            this.left = this.right = null;
-        }
-    }
+     public class TreeNode {
+         public int val;
+         public TreeNode left, right;
+          public TreeNode(int val) {
+             this.val = val;
+             this.left = this.right = null;
+         }
+     }
     public List<List<Integer>> levelOrder(TreeNode root) {
         // write your code here
         List<List<Integer>> listList = new LinkedList<List<Integer>>();
@@ -24,7 +27,6 @@ public class Binary_Tree_Zigzag_Level_Order_Traversal {
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
-        boolean fromLeft = true;   //初始时根节点当作是从左往右
 
         TreeNode p = root;
         queue.add(p);
@@ -42,10 +44,6 @@ public class Binary_Tree_Zigzag_Level_Order_Traversal {
                     queue.add(p.right);
                 }
             }
-            if ( !fromLeft ){
-                Collections.reverse(list);
-            }
-            fromLeft = !fromLeft;
             listList.add(list);
         }
         return listList;

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Binary_Tree_Level_Order_Traversal {
+public class Binary_Tree_Level_Order_Traversal_70 {
 
      public class TreeNode {
          public int val;
@@ -21,12 +21,12 @@ public class Binary_Tree_Level_Order_Traversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         // write your code here
         List<List<Integer>> listList = new LinkedList<List<Integer>>();
-
         if (root == null){
             return  listList;
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
+        Stack<List<Integer>> stack = new Stack<>();
 
         TreeNode p = root;
         queue.add(p);
@@ -44,7 +44,10 @@ public class Binary_Tree_Level_Order_Traversal {
                     queue.add(p.right);
                 }
             }
-            listList.add(list);
+            stack.push(list);
+        }
+        while ( !stack.isEmpty() ){
+            listList.add(stack.pop());
         }
         return listList;
     }
