@@ -67,5 +67,29 @@ public class InsertionSort {
             arr[j] = temp;
         }
     }
+/***** 优化版本3：折半插入 *****/
+    public static void insertSort_half(int[] arr){
+        int i, j;
+        for (i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            // 查找插入点
+            int low = 0;
+            int high = i - 1;   //这里要留一个i，不能取到i,因为如果前面的全部都小于arr[i]，二分查找的Low会指向high+1的位置，此时正好是i
+            while (low <= high){
+                int mid = (low + high) / 2;
+                if (temp > arr[mid]){
+                    low = mid + 1;  //mid前面的已经可以安全跳过，mid+1是大于或者等于
+                }else {
+                    high = mid - 1;
+                }
+            }
+            // low是要插入的地方
+            for (int k = i; k > low ; k--) {
+                arr[k] = arr[k-1];
+            }
+            arr[low] = temp;
+        }
+
+    }
 
 }

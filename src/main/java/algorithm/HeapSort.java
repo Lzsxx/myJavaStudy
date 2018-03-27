@@ -26,7 +26,7 @@ public class HeapSort {
         }
 
         // [0]与lastLeaf交换
-        for (int j = 0; j < arr.length - 1; j++) {  // 循环0 ~ N-1次
+        for (int j = 0; j < arr.length - 1; j++) {  // 循环0 ~ N-1次,会取到arr.length-2,然后后面swap是交换0和1的位置，调整时调整只有一个根节点的树，此时只是进入函数，不会进入while循环，不做调整，所以不会影响任何
             swap(arr, 0 , lastLeaf - j);    // 随着循环，最后一个子节点的下标也会变化
             heapSort(arr, 0, lastLeaf - j - 1);
         }
