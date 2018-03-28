@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="607c9607-b2c4-46d7-923c-47b3e6ce9c32" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/AvlTree.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/AvlTree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/BinarySearchTree.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/BinarySearchTree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/RedBlackTree.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/AvlTree_Test.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/AvlTree_Test.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/Test_AvlTree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/BinarySearchTree_Test.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/BinarySearchTree_Test.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/Test_BinarySearchTree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/PrintLinkFromTailToHead/PrintLinkFromTailToHead.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/ReplaceBlank/ReplaceBlank.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/UseTwoStackAsQueue/UseTwoStackAsQueue.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,8 +86,8 @@
       <file leaf-file-name="RedBlackTree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            <state relative-caret-position="252">
+              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -526,7 +516,7 @@
       <workItem from="1521285878762" duration="24370000" />
       <workItem from="1521529619369" duration="40386000" />
       <workItem from="1522116713211" duration="3800000" />
-      <workItem from="1522222415772" duration="254000" />
+      <workItem from="1522222415772" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of github.com:Lzsxx/JavaStudy&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/spider/Spider_JinJiang_Main.class">
       <created>1521442745550</created>
@@ -542,11 +532,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521470900975</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="20180319">
+      <created>1522222729871</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1522222729871</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199456000" />
+    <option name="totallyTimeSpent" value="199539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1821" height="1102" extended-state="6" />
@@ -759,6 +756,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="143" column="17" lean-forward="false" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,8 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        <state relative-caret-position="252">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding />
         </state>
       </provider>
