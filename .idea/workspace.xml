@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="607c9607-b2c4-46d7-923c-47b3e6ce9c32" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/LintCode/FindPeak_75.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/HeapSort.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/HeapSort.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/InsertionSort.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/InsertionSort.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/onlytest/ttt.java" afterPath="$PROJECT_DIR$/src/main/java/onlytest/ttt.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/algorithm/ArraysFindTarget/ArraysFindTarget.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/AvlTree.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/AvlTree.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/BinarySearchTree.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/BinarySearchTree.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/RedBlackTree.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/AvlTree_Test.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/AvlTree_Test.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/Test_AvlTree.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/BinarySearchTree_Test.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyJavaCollection/utilTest/tree/BinarySearchTree_Test.java" afterPath="$PROJECT_DIR$/src/main/java/algorithm/tree/Test_BinarySearchTree.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/PrintLinkFromTailToHead/PrintLinkFromTailToHead.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/ReplaceBlank/ReplaceBlank.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithm/UseTwoStackAsQueue/UseTwoStackAsQueue.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +30,7 @@
       <file leaf-file-name="fff.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/onlytest/fff.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="0">
               <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -45,35 +50,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectionSort.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/SelectionSort.java">
+      <file leaf-file-name="KmpSort.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/KmpSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="144">
+              <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeapSort.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/HeapSort.java">
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/spider/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-484">
+              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AvlTree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/AvlTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-10">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BinarySearchTree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/BinarySearchTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-10">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="method#findMin#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#findMax#0;class#BinarySearchTree#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RedBlackTree.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Float.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Development/Java/jdk1.8.0_131/src.zip!/java/lang/Float.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24516">
-              <caret line="742" column="22" lean-forward="false" selection-start-line="742" selection-start-column="22" selection-end-line="742" selection-end-column="22" />
-              <folding>
-                <element signature="e#21752#21753#0" expanded="true" />
-                <element signature="e#21796#21797#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/LintCode/Binary_Tree_Inorder_Traversal.java" />
         <option value="$PROJECT_DIR$/src/main/java/LintCode/Binary_Tree_postorder_Traversal.java" />
         <option value="$PROJECT_DIR$/src/main/java/LintCode/Binary_Tree_Postorder_Traversal.java" />
         <option value="$PROJECT_DIR$/src/main/java/LintCode/Binary_Tree_Level_Order_Traversal.java" />
@@ -166,6 +190,7 @@
         <option value="$PROJECT_DIR$/src/main/java/onlytest/fff.java" />
         <option value="$PROJECT_DIR$/src/main/java/onlytest/aaa.java" />
         <option value="$PROJECT_DIR$/src/main/java/algorithm/HeapSort.java" />
+        <option value="$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java" />
       </list>
     </option>
   </component>
@@ -195,7 +220,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,7 +255,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="onlytest" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaStudy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaStudy" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="tree" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaStudy" type="b2602c69:ProjectViewProjectNode" />
@@ -239,9 +276,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,7 +304,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.aaa">
+  <component name="RunManager" selected="Application.KmpSort">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -297,14 +331,14 @@
       <module name="JavaStudy" />
       <envs />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="KmpSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="onlytest.*" />
+          <option name="PATTERN" value="algorithm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="onlytest.Main" />
+      <option name="MAIN_CLASS_NAME" value="algorithm.KmpSort" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -316,14 +350,14 @@
       <module name="JavaStudy" />
       <envs />
     </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="onlytest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="onlytest.Test2" />
+      <option name="MAIN_CLASS_NAME" value="onlytest.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -448,19 +482,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Test2" />
-      <item index="1" class="java.lang.String" itemvalue="Application.InitialOrderWithExtend" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="3" class="java.lang.String" itemvalue="Application.fff" />
-      <item index="4" class="java.lang.String" itemvalue="Application.aaa" />
+      <item index="0" class="java.lang.String" itemvalue="Application.InitialOrderWithExtend" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="2" class="java.lang.String" itemvalue="Application.fff" />
+      <item index="3" class="java.lang.String" itemvalue="Application.aaa" />
+      <item index="4" class="java.lang.String" itemvalue="Application.KmpSort" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.aaa" />
-        <item index="1" class="java.lang.String" itemvalue="Application.fff" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="3" class="java.lang.String" itemvalue="Application.InitialOrderWithExtend" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Test2" />
+        <item index="0" class="java.lang.String" itemvalue="Application.KmpSort" />
+        <item index="1" class="java.lang.String" itemvalue="Application.aaa" />
+        <item index="2" class="java.lang.String" itemvalue="Application.fff" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="4" class="java.lang.String" itemvalue="Application.InitialOrderWithExtend" />
       </list>
     </recent_temporary>
   </component>
@@ -491,7 +525,8 @@
       <workItem from="1521283436742" duration="1211000" />
       <workItem from="1521285878762" duration="24370000" />
       <workItem from="1521529619369" duration="40386000" />
-      <workItem from="1522116713211" duration="401000" />
+      <workItem from="1522116713211" duration="3800000" />
+      <workItem from="1522222415772" duration="254000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of github.com:Lzsxx/JavaStudy&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;target/classes/spider/Spider_JinJiang_Main.class">
       <created>1521442745550</created>
@@ -511,10 +546,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195803000" />
+    <option name="totallyTimeSpent" value="199456000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1828" height="1102" extended-state="6" />
+    <frame x="-11" y="-11" width="1821" height="1102" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -524,11 +560,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18472221" sideWeight="0.49624866" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18438539" sideWeight="0.49624866" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23809524" sideWeight="0.49624866" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2873819" sideWeight="0.49624866" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31979167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -606,34 +642,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/KmpSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/LintCode/ExpressionExpand_575.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/LintCode/NestedIterator_528.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="63" column="32" lean-forward="true" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/LintCode/EvalRPN_424.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="52" lean-forward="false" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LintCode/KillProcess_872.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -691,20 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/BinarySearchTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="831">
-          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyJavaCollection/util/tree/AvlTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1908">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LintCode/Search_in_Rotated_Sorted_Array_62.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
@@ -730,14 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
           <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding>
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,9 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
           <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -888,7 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="50" column="42" lean-forward="false" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-360">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,7 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-432">
           <caret line="27" column="15" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,7 +913,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="69" column="24" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,21 +920,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24516">
           <caret line="742" column="22" lean-forward="false" selection-start-line="742" selection-start-column="22" selection-end-line="742" selection-end-column="22" />
-          <folding>
-            <element signature="e#21752#21753#0" expanded="true" />
-            <element signature="e#21796#21797#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/onlytest/fff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="0">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#radixSort222#0;class#fff#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/HeapSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/SelectionSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -969,18 +956,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/SelectionSort.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/KmpSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="144">
+          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/HeapSort.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/ReplaceBlank/ReplaceBlank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-844">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/spider/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-484">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/AvlTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/BinarySearchTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="method#findMin#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#findMax#0;class#BinarySearchTree#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/algorithm/tree/RedBlackTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding />
         </state>
       </provider>

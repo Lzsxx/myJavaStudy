@@ -1,9 +1,7 @@
-package MyJavaCollection.utilTest.tree;
+package algorithm.tree;
 
 
-import MyJavaCollection.util.tree.BinarySearchTree;
-
-public class BinarySearchTree_Test {
+public class Test_BinarySearchTree {
 
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();

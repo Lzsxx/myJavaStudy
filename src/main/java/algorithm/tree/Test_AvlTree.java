@@ -1,8 +1,6 @@
-package MyJavaCollection.utilTest.tree;
+package algorithm.tree;
 
-import MyJavaCollection.util.tree.AvlTree;
-
-public class AvlTree_Test {
+public class Test_AvlTree {
     public static void main(String[] args) {
         example_2();
     }
