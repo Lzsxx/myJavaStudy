@@ -4,6 +4,7 @@ package LintCode;
 import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -41,32 +42,31 @@ public class Binary_Tree_Postorder_Traversal_68 {
     
     /***** 非递归方法 *****/
     public List<Integer> postorderTraversalWithOut(TreeNode root) {
-        if (root == null){
-            return null;
-        }
-        List<Integer> list = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        TreeNode lastVisit = null;
 
-        while (current != null){
-            stack.push(current);
-            current = current.left;
+        List<Integer> list = new LinkedList<>();
+
+        if (root == null){
+            return list;
         }
-        while ( !stack.isEmpty() ){
-            current = stack.peek();
-            // 取得此时栈顶元素，如果栈顶元素存在右儿子且没有访问过，要进入到右子树，继续往右子树的最左边走
-            if (current.right != null && lastVisit != current.right){
-                current = current.right;
-                while (current != null){
-                    stack.push(current);
-                    current = current.left;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode p =root;
+        while (p != null){
+            stack.push(p);
+            p = p.left;
+        }
+        TreeNode lastVisit = null;
+        while (!stack.isEmpty()){
+            p = stack.peek();
+            if (p.right != lastVisit && p.right != null){
+                p = p.right;
+                while (p != null){
+                    stack.push(p);
+                    p = p.left;
                 }
-            }else { // 否则，就可以访问当前根节点了
-                current = stack.pop();
-                list.add(current.val);
-                lastVisit = current;
+                continue;
             }
+            list.add(p.val);
+            lastVisit = stack.pop();
         }
 
         return list;

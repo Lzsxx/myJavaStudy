@@ -1,5 +1,6 @@
 package LintCode;
 
+import java.util.List;
 import java.util.Stack;
 
 class IsValidParentheses {
@@ -8,6 +9,9 @@ class IsValidParentheses {
         IsValidParentheses isValidParentheses = new IsValidParentheses();
         System.out.println(isValidParentheses.isValidParentheses("["));
     }
+
+
+
 
      public boolean isValidParentheses(String s) {
          // write your code here

@@ -2,6 +2,7 @@ package LintCode;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -69,6 +70,35 @@ public class Binary_Tree_Preorder_Traversal_66 {
             }
             if (p.left != null){
                 stack.push(p.left);
+            }
+        }
+        return list;
+    }
+/***** 非递归方法2，比较好记的版本 *****/
+    public List<Integer> preorderTraversal(TreeNode root) {
+        // write your code here
+        List<Integer> list = new LinkedList<>();
+
+        if (root == null){
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode p = root;
+        while (p != null){
+            stack.push(p);
+            list.add(p.val);
+            p = p.left;
+        }
+        while (!stack.empty()){
+            p = stack.pop();
+            if (p.right != null){
+                p = p.right;
+                while (p != null){
+                    stack.push(p);
+                    list.add(p.val);
+                    p = p.left;
+                }
+                continue;
             }
         }
         return list;

@@ -63,3 +63,30 @@ public class Binary_Tree_Inorder_Traversal_67 {
         return list;
     }
 }
+
+// 非递归方法
+//    public List<Integer> inorderTraversal(TreeNode root) {
+//        // write your code here
+//        List<Integer> list = new LinkedList<>();
+//        Stack<TreeNode> stack = new Stack<>();
+//
+//        TreeNode p = root;
+//        while (p != null){
+//            stack.push(p);
+//            p = p.left;
+//        }
+//        while ( !stack.isEmpty() ){
+//            TreeNode temp = stack.pop();
+//            list.add(temp.val);
+//
+//            if (temp.right != null){
+//                temp = temp.right;
+//                while (temp != null){
+//                    stack.push(temp);
+//                    temp = temp.left;
+//                }
+//            }
+//
+//        }
+//        return list;
+//    }

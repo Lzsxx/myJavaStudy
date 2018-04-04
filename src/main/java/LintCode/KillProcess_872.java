@@ -25,4 +25,22 @@ class KillProcess {
          return list;
      }
 
+     /***** 递归版 *****/
+//     List<Integer> list = new ArrayList<>();
+//    Set<Integer> set = new LinkedHashSet<>();
+//    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {
+//        // Write your code here
+//        // 思路：kill可能不仅在pid中，也在ppid中，则需要扫描ppid,对应的id也要再拿来扫描ppid
+//        if (!set.contains(kill)){
+//            list.add(kill);
+//            set.add(kill);
+//        }
+//        for (int i = 0; i < ppid.size(); i++) {
+//            if (kill == ppid.get(i)){   //有子进程
+//                killProcess(pid, ppid, pid.get(i));
+//            }
+//        }
+//        return list;
+//    }
+
 }
