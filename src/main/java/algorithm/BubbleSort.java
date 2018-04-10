@@ -53,7 +53,8 @@ public class BubbleSort {
         /***** 优化版本 2 *****/
         /**
         * @Description: 版本1用boolean来标注是否进行了交换，然后提前结束外层循环，而内层循环每次边界值-1
-         * 但实际上可以记录上一次最后交换的位置来进一步缩小内层循环的边界值，
+         * 但实际上可以记录上一次最后交换的位置来进一步缩小内层循环的边界值，因为记录下最后一次交换的位置之后，
+         * 后续的都已经是有序的，不需要再处理，所以可以提前结束
          * 版本2中flag既是是否交换的flag，又是内层循环的边界值
         */
         int n = arr.length;
@@ -70,6 +71,7 @@ public class BubbleSort {
         }
 
     }
+
     public static void swap(int[] arr, int a, int b){
         if (a == b)
             return;

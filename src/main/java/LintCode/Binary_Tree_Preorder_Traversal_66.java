@@ -85,8 +85,8 @@ public class Binary_Tree_Preorder_Traversal_66 {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode p = root;
         while (p != null){
-            stack.push(p);
             list.add(p.val);
+            stack.push(p);
             p = p.left;
         }
         while (!stack.empty()){
@@ -98,7 +98,6 @@ public class Binary_Tree_Preorder_Traversal_66 {
                     list.add(p.val);
                     p = p.left;
                 }
-                continue;
             }
         }
         return list;
