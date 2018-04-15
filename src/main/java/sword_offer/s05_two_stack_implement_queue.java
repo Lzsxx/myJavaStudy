@@ -2,7 +2,8 @@ package sword_offer;
 
 import java.util.Stack;
 
-class two_stack_implement_queue_05 {
+// 题目：用两个栈来实现队列
+class s05_two_stack_implement_queue {
     // 思路，每次加入队列，就将非空的栈全部pop()，
      Stack<Integer> stack_temp = new Stack<Integer>();
      Stack<Integer> stack = new Stack<Integer>();

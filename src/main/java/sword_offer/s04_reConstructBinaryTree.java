@@ -3,6 +3,8 @@ package sword_offer;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// 题目：给出二叉树的前序和中序遍历，要求重建二叉树
+//  思路：分析，递归
 class Test{
     public static void main(String[] args) {
         reConstructBinaryTree_04 test = new reConstructBinaryTree_04();
@@ -61,6 +63,7 @@ class TreeNode {
                 // 划分左右子树，分别重建
                 root.left = reBuild(pre, preLow + 1, preLow + leftNum, in, inLow,i - 1);
                 root.right = reBuild(pre, preLow + leftNum + 1, preHigh, in, i + 1,inHigh);
+                break;
 
 //                if (i == inLow){    //只有右支
 //                    int leftNum = i - inLow;

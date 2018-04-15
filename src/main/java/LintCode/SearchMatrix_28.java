@@ -8,8 +8,9 @@ import javax.xml.bind.SchemaOutputResolver;
 class SearchMatrix {
     public static void main(String[] args) {
         SearchMatrix searchMatrix = new SearchMatrix();
-        int[][] arr = {{1,3,5,7},{10,11,16,20},{23,30,34,50}};
-        searchMatrix.searchMatrix(arr, 7);
+        int[][] arr = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
+
+        System.out.println(searchMatrix.searchMatrix(arr, 7));
     }
      public boolean searchMatrix(int[][] matrix, int target) {
          // write your code here

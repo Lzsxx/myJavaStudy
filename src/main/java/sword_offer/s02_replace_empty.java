@@ -3,6 +3,7 @@ package sword_offer;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// 题目：替换字符串中的空格为%20
 class replaceSpace {
     public String replaceSpace(StringBuffer str) {
         Queue<Character> queue = new LinkedList<>();

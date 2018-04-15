@@ -2,6 +2,9 @@ package sword_offer;
 import java.util.ArrayList;
 import java.util.Stack;
 
+// 题目：从尾到头打印链表
+// 思路：用栈实现
+
 class ListNode {
        int val;
        ListNode next = null;

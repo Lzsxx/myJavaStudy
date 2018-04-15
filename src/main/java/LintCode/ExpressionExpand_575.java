@@ -12,8 +12,8 @@ class ExpressionExpand {
     }
      public String expressionExpand(String s) {
          // write your code here
-         Stack<String> bracketsStack = new Stack<>();
-         Stack<Integer> countStack = new Stack<>();
+         Stack<String> operatorStack = new Stack<>();
+         Stack<Integer> numStack = new Stack<>();
          StringBuffer buffer = new StringBuffer();
          boolean lastIsNum = false;
          final String FALSE = "false";
@@ -26,8 +26,8 @@ class ExpressionExpand {
                      return FALSE;  //字母紧跟在数字后面会出错
                  }
                  lastIsNum = false;
-                 if ( !countStack.isEmpty() ){
-                     bracketsStack.push(String.valueOf(str[i]));
+                 if ( !numStack.isEmpty() ){
+                     operatorStack.push(String.valueOf(str[i]));
                  }else{
                      buffer.append(str[i]);
                  }
@@ -35,11 +35,11 @@ class ExpressionExpand {
              } else if (str[i] >= 48 && str[i] <= 57){
                  int realValue = str[i] - 48;
                  if (lastIsNum){
-                     int temp = countStack.pop();
+                     int temp = numStack.pop();
                      temp = temp * 10 + realValue;
-                     countStack.push(temp);
+                     numStack.push(temp);
                  }else {
-                     countStack.push(realValue);
+                     numStack.push(realValue);
                  }
                  lastIsNum = true;
                  // 遇到左括号，入栈
@@ -47,21 +47,21 @@ class ExpressionExpand {
                  if ( !lastIsNum){  //[前面如果不是数字，就出错
                      return FALSE;
                  }
-                 bracketsStack.push(String.valueOf(str[i]));
+                 operatorStack.push(String.valueOf(str[i]));
                  lastIsNum = false;
              }  else if ( str[i] == ']'){
                  if (lastIsNum){
                      return FALSE;
                  }
                  // 遇到一个]，意味着要出栈一堆字母，先取数字，再取字母，然后重复
-                 int repeatCount  = countStack.pop();
+                 int repeatCount  = numStack.pop();
                  Stack<String> waitForRepeatStr_Stack = new Stack<>();
                  StringBuffer waitForRepeatStr_Buffer = new StringBuffer();
-                 while ( !bracketsStack.isEmpty() && !bracketsStack.peek().equals("[")){
-                     waitForRepeatStr_Stack.push(bracketsStack.pop());
+                 while ( !operatorStack.isEmpty() && !operatorStack.peek().equals("[")){
+                     waitForRepeatStr_Stack.push(operatorStack.pop());
                  }
-                 if ( !bracketsStack.isEmpty() ){
-                     bracketsStack.pop();   // 将[出栈，但是不入tempStr
+                 if ( !operatorStack.isEmpty() ){
+                     operatorStack.pop();   // 将[出栈，但是不入tempStr
                  }else {
                      return FALSE;  // 如果是因为栈空而退出循环，则根本没有找到配对的[,报错
                  }
@@ -75,8 +75,8 @@ class ExpressionExpand {
                      waitForRepeatStr_Buffer.append(repeatStr);
                  }
                  //出栈了[以后依然不为空，新匹配好的字符串要继续入栈
-                 if ( !bracketsStack.isEmpty() ){
-                     bracketsStack.push(waitForRepeatStr_Buffer.toString());
+                 if ( !operatorStack.isEmpty() ){
+                     operatorStack.push(waitForRepeatStr_Buffer.toString());
                  }else {    // 否则，就可以直接加入输出序列
                      buffer.append(waitForRepeatStr_Buffer);
                  }
