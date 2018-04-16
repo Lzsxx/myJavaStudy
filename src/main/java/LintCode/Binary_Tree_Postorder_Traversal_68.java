@@ -68,7 +68,6 @@ public class Binary_Tree_Postorder_Traversal_68 {
             list.add(p.val);
             lastVisit = stack.pop();
         }
-
         return list;
     }
 }
