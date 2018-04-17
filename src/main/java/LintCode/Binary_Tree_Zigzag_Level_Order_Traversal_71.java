@@ -1,7 +1,5 @@
 package LintCode;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 
