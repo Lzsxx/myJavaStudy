@@ -1,6 +1,5 @@
 package LintCode;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 class Search_in_Rotated_Sorted_Array_62 {
     public int search(int[] A, int target) {

@@ -1,7 +1,5 @@
 package sword_offer;
 
-import onlytest.HelloAnnotation;
-
 // 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
 //思路：用后序遍历，每次返回的时候，同时返回子树的高度，判断是否大于2
 public class s39_IsBalanceTree {

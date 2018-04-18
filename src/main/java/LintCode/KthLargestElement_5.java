@@ -1,11 +1,5 @@
 package LintCode;
 
-import algorithm.QuickSort;
-import com.sun.org.apache.bcel.internal.generic.SWAP;
-import spider.Test;
-import sun.awt.image.ShortInterleavedRaster;
-
-import java.text.BreakIterator;
 
 public class KthLargestElement_5 {
     private int kth;
