@@ -3,22 +3,43 @@ package excel;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
-import jxl.write.Label;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
 
 import java.io.*;
+import java.text.NumberFormat;
 import java.util.*;
 
 public class ProcessMyData {
-    private static final String filePath = "E:\\excel\\error_1_foreignbody";
-    private static final int[] interval = {1, 2, 9, 10, 11, 20}; //6个阶段
-    private static final String TargetFile = "E:\\excel\\target\\target.csv";
+    private static final Map<String, String> originalDataMap = new HashMap<>();
+    static {
+        originalDataMap.put("1", "error_1_foreignBody");
+        originalDataMap.put("2", "error_2_suddenlyStop");
+        originalDataMap.put("3", "error_3_zigzagCurrent");
+        originalDataMap.put("4", "error_4_lineBreak");
+        originalDataMap.put("5", "error_5_delay");
+        originalDataMap.put("6", "error_6_overproof");
+        originalDataMap.put("7", "error_7_muddledness");
+        originalDataMap.put("8", "error_8_notFlexible");
+    }
+
+    /***** 可配置项 *****/
+    private static  String categoryFlag = "1";
+    private static  int[] interval = {1, 2, 9, 10, 11, 20}; //6个阶段
+    private static  String rootPath = "E:\\excel\\";
+    private static  String filePath = rootPath + originalDataMap.get(categoryFlag);
+    private static  String targetFile = rootPath + "target\\target.csv";
+
+    boolean debugFlag = false;
+
 
     public static void main(String[] args) {
         ProcessMyData data = new ProcessMyData();
-//        data.getAllExcel();
-        data.readExcel(new File("E:\\excel\\1,+0.1.xls"));
+        for (int i = 1; i <= originalDataMap.size(); i++) {
+            categoryFlag = String.valueOf(i);
+            filePath = rootPath + originalDataMap.get(categoryFlag);
+            data.getAllExcel();
+        }
+//        data.readExcel(new File("E:\\excel\\1,+0.1.xls"));
+
     }
     public void getAllExcel(){
         File file = new File(filePath);
@@ -27,6 +48,9 @@ public class ProcessMyData {
             for (File f : listFiles){
                 if (f.getName().endsWith(".xls")){
                     System.out.println(f.getName());
+                    if (f.getName().equalsIgnoreCase("0.4,0.6.xls")){
+                        debugFlag = true;
+                    }
                     readExcel(f);
                 }
             }
@@ -36,14 +60,24 @@ public class ProcessMyData {
     public void writeExcel(Map<Integer, Double> minMap, Map<Integer, Double> maxMap, Map<Integer, Double> avgMap){
         ArrayList<ArrayList<String>> alldata=new ArrayList<ArrayList<String>>();
         ArrayList<String> list = new ArrayList<>();
-        int length = minMap.size();
-        for (int i = 0; i < length; i++) {
-            list.add(String.valueOf(minMap.get(i)));
-            list.add(String.valueOf(maxMap.get(i)));
-            list.add(String.valueOf(avgMap.get(i)));
+        NumberFormat numberFormat = NumberFormat.getNumberInstance();        //digits 显示的数字位数 为格式化对象设定小数点后的显示的最多位,显示的最后位是舍入的
+        numberFormat.setMaximumFractionDigits(15);
+
+        for (int i = 0; i < interval.length; i++) {
+            if (minMap.get(i) == null && maxMap.get(i) == null && avgMap.get(i) == null){ // 如果对应下标的map没有值，那么就用0填充
+                list.add("0");
+                list.add("0");
+                list.add("0");
+            }else {
+                list.add(numberFormat.format(minMap.get(i)));
+                list.add(numberFormat.format(maxMap.get(i)));
+                list.add(numberFormat.format(avgMap.get(i)));
+            }
         }
+
+        list.add(categoryFlag);
         alldata.add(list);
-        Array2CSV(alldata, TargetFile);
+        Array2CSV(alldata, targetFile);
     }
 
     public void readExcel(File file){
@@ -94,13 +128,10 @@ public class ProcessMyData {
                         continue;
                     }
                 }
-                // 遍历完一个sheet的所有行数且分类完毕，此时来做特征值计算
+                // 遍历完一个sheet的所有行数且分类完毕，此时来做特征值计算,并写入一行到表格中
                 computeSpecialValue(valueMap);
 
-                stopFirstLayer = true;      // debug用，只遍历一个sheet
-                if (stopFirstLayer){
-                    break;
-                }
+                break; // 只处理第一个sheet
             }
         }
         workbook.close();
@@ -111,13 +142,22 @@ public class ProcessMyData {
         Map<Integer, Double> maxMap = new HashMap<>();    // 保存最大值
         Map<Integer, Double> avgMap = new HashMap<>();    // 保存平均值
 
-        for (int i = 0; i < valueMap.size(); i++) {
+        if (debugFlag){
+            System.out.println("Stop");
+        }
+
+        for (int i = 0; i < interval.length; i++) {
+            // 有多少个interval，那么最多会有多少个对于与map的list，但是有的list可能没有值，为null,所以这里要退出本次循环
+            List<Double> list = valueMap.get(i);
+            if (list == null){
+                continue;
+            }
+
             double minValue = Double.MAX_VALUE;
             double maxValue = Double.MIN_VALUE;
             double avgValue = 0;
             double sum = 0;
 
-            List<Double> list = valueMap.get(i);
             for (double v : list){
                 if (v < minValue){
                     minValue = v;
@@ -153,8 +193,7 @@ public class ProcessMyData {
         return interval.length - 1;     // 超过20秒的，都放到20秒那个格子里
     }
 
-    public static void Array2CSV(ArrayList<ArrayList<String>> data, String path)
-    {
+    public static void Array2CSV(ArrayList<ArrayList<String>> data, String path) {
         try {
             BufferedWriter out =new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path,true),"UTF-8"));
             for (int i = 0; i < data.size(); i++)
@@ -162,7 +201,8 @@ public class ProcessMyData {
                 ArrayList<String> onerow=data.get(i);
                 for (int j = 0; j < onerow.size(); j++)
                 {
-                    out.write(DelQuota(onerow.get(j)));
+//                    out.write(DelQuota(onerow.get(j)));
+                    out.write(onerow.get(j));
                     out.write(",");
                 }
                 out.newLine();
@@ -175,8 +215,8 @@ public class ProcessMyData {
         }
 
     }
-    public static String DelQuota(String str)
-    {
+
+    public static String DelQuota(String str) {
         String result = str;
         String[] strQuota = { "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "`", ";", "'", ",", ".", "/", ":", "/,", "<", ">", "?" };
         for (int i = 0; i < strQuota.length; i++)
