@@ -12,8 +12,8 @@ public class CoinChange_669 {
     public static void main(String[] args) {
         CoinChange_669 test = new CoinChange_669();
 //        int[] coins = {1,2,20,41,30,40,34,43,47,38,26,39,25,42,37,23,28,49,27};
-        int[] coins = {2};
-        System.out.println(test.coinChange(coins, 3));
+        int[] coins = {1,2,5};
+        System.out.println(test.coinChange(coins, 5));
 //        test.coinChange(coins, 41010);
     }
     /**
@@ -22,6 +22,7 @@ public class CoinChange_669 {
      * @return: the fewest number of coins that you need to make up
      */
     public int coinChange(int[] coins, int money) {
+
         // 默认coins的硬币是按照从小到大的顺序排列的
         if (money == 0){
             return 0;

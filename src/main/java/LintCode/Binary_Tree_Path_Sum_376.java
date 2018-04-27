@@ -2,6 +2,10 @@ package LintCode;
 
 import java.util.*;
 
+// 给定一个二叉树，找出所有路径中各节点相加总和等于给定 目标值 的路径。
+//
+//一个有效的路径，指的是从根节点到叶节点的路径。
+
 public class Binary_Tree_Path_Sum_376 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);

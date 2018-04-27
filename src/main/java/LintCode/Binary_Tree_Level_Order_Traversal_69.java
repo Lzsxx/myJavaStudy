@@ -1,12 +1,11 @@
 package LintCode;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
+
+// 给出一棵二叉树，返回其节点值的层次遍历（逐层从左往右访问）
 
 public class Binary_Tree_Level_Order_Traversal_69 {
 
