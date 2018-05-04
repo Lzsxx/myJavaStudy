@@ -37,47 +37,69 @@ class TreeNode {
       TreeNode(int x) { val = x; }
   }
   class reConstructBinaryTree_04 {
-    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
-        if (pre.length != in.length || pre.length < 1){
-            return null;
-        }
-        return reBuild(pre,0,pre.length - 1, in, 0, in.length - 1);
-    }
-    public TreeNode reBuild(int [] pre,int preLow, int preHigh,int [] in, int inLow, int inHigh){
-        // first
-        if (preLow < 0 || preHigh < 0 || preLow >= pre.length || preHigh >= pre.length){
-            return null;
-        }
-        if (inLow < 0 || inHigh < 0 || inLow >= in.length || inHigh >= in.length){
-            return null;
-        }
-        if (preLow > preHigh || inLow > inHigh){
-            return null;
-        }
-        TreeNode root = new TreeNode(pre[preLow]);
 
-        for (int i = inLow; i <= inHigh; i++) {
-            if (in[i] == pre[preLow]){  //在中序中找到根节点，然后分别重建左右分支
-                int leftNum = -1;
-                leftNum = i - inLow;
-                // 划分左右子树，分别重建
-                root.left = reBuild(pre, preLow + 1, preLow + leftNum, in, inLow,i - 1);
-                root.right = reBuild(pre, preLow + leftNum + 1, preHigh, in, i + 1,inHigh);
-                break;
+        // 精简版本
+      public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+          return  rebuild(pre, 0, pre.length - 1, in, 0, in.length - 1);
+      }
+      public TreeNode rebuild(int[] pre, int preLow, int preHigh, int[] in, int inLow, int inHigh){
+          if (pre.length != in.length || pre.length < 1 || preLow > preHigh || inLow > inHigh){
+              return null;
+          }
+          TreeNode root = new TreeNode(pre[preLow]);
+          for (int i = inLow; i <= inHigh; i++) {
+              if (root.val == in[i]){
+                  int count = i - inLow;
+                  root.left = rebuild(pre, preLow + 1, preLow + count, in, inLow, inLow + count - 1);
+                  root.right = rebuild(pre, preLow + count + 1, preHigh, in, inLow + count + 1, inHigh);
+                  break;
+              }
+          }
+          return  root;
+      }
 
-//                if (i == inLow){    //只有右支
-//                    int leftNum = i - inLow;
-//                    root.left = null;
-//                    root.right = reBuild(pre, preLow + leftNum + 1, preHigh, in, i + 1,inHigh);
-//                }else if (i == inHigh) {    //只有左支
-//                    int leftNum = i - inLow;
-//                    root.left = reBuild(pre, preLow + 1, preLow + leftNum, in, inLow,i - 1);
-//                    root.right = null;
-//                }else { //左右都有
+    // 最初版本
+//    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+//        if (pre.length != in.length || pre.length < 1){
+//            return null;
+//        }
+//        return reBuild(pre,0,pre.length - 1, in, 0, in.length - 1);
+//    }
+//    public TreeNode reBuild(int [] pre,int preLow, int preHigh,int [] in, int inLow, int inHigh){
+//        // first
+//        if (preLow < 0 || preHigh < 0 || preLow >= pre.length || preHigh >= pre.length){
+//            return null;
+//        }
+//        if (inLow < 0 || inHigh < 0 || inLow >= in.length || inHigh >= in.length){
+//            return null;
+//        }
+//        if (preLow > preHigh || inLow > inHigh){
+//            return null;
+//        }
+//        TreeNode root = new TreeNode(pre[preLow]);
 //
-//                }
-            }
-        }
-        return root;
-    }
+//        for (int i = inLow; i <= inHigh; i++) {
+//            if (in[i] == pre[preLow]){  //在中序中找到根节点，然后分别重建左右分支
+//                int leftNum = -1;
+//                leftNum = i - inLow;
+//                // 划分左右子树，分别重建
+//                root.left = reBuild(pre, preLow + 1, preLow + leftNum, in, inLow,i - 1);
+//                root.right = reBuild(pre, preLow + leftNum + 1, preHigh, in, i + 1,inHigh);
+//                break;
+//
+////                if (i == inLow){    //只有右支
+////                    int leftNum = i - inLow;
+////                    root.left = null;
+////                    root.right = reBuild(pre, preLow + leftNum + 1, preHigh, in, i + 1,inHigh);
+////                }else if (i == inHigh) {    //只有左支
+////                    int leftNum = i - inLow;
+////                    root.left = reBuild(pre, preLow + 1, preLow + leftNum, in, inLow,i - 1);
+////                    root.right = null;
+////                }else { //左右都有
+////
+////                }
+//            }
+//        }
+//        return root;
+//    }
 }
