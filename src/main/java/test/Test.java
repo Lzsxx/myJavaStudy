@@ -1,16 +1,24 @@
 package test;
 
-public class Test {
-    public int a = 3;
-    static Integer si = 6;
-    String s = "Hello World";
+import com.sun.org.apache.bcel.internal.generic.SWAP;
+import jdk.nashorn.internal.ir.IfNode;
 
-    public static void main(String[] args) {
-        Test test = new Test();
-        test.a = 8;
-        si = 9;
-    }
-    private void test(){
-        this.a = a;
+public class Test {
+
+
+
+
+
+
+
+
+
+    public static void swap(int[] arr, int a, int b){
+        if (a == b) {
+            return;
+        }
+        arr[a] = arr[a] ^ arr[b];
+        arr[b] = arr[a] ^ arr[b];
+        arr[a] = arr[a] ^ arr[b];
     }
 }
