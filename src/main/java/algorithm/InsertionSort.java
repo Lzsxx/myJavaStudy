@@ -66,6 +66,20 @@ public class InsertionSort {
             }
             arr[j] = temp;
         }
+//        public static void insertSort(int[] arr){
+//            for (int i = 1; i < arr.length; i++) {
+//                int j = i;
+//                int temp = arr[j];
+//                for (; j - 1 >= 0; j--) {
+//                    if (arr[j - 1] > temp) {
+//                        arr[j] = arr[j - 1];
+//                    }else {
+//                        break;
+//                    }
+//                }
+//                arr[j] = temp;
+//            }
+//        }
     }
 /***** 优化版本3：折半插入 *****/
     public static void insertSort_half(int[] arr){

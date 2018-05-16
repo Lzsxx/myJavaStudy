@@ -44,12 +44,12 @@ public class s35_InversePairs {
         int k = 0;
         while ( i <= mid && j <= high){
             if (arr[i] > arr[j]){
-                count += high - j + 1;
-                temp[k] = arr[i];   // 按从大到小的顺序排列
-                i++;
-            }else {
-                temp[k] = arr[j];
+                count += mid - i + 1;  // 如果第一组的当前数大于第二组的当前数，紧接着第二组这个较小的数将被移走，那么第一组当前及后面的数，都是大于第二组当前数的，都要统计
+                temp[k] = arr[j];   // 按从小到大的顺序排列
                 j++;
+            }else {
+                temp[k] = arr[i];
+                i++;
             }
             k++;
         }

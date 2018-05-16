@@ -12,30 +12,65 @@ public class s39_IsBalanceTree {
             this.val = val;
         }
     }
+    // 临时发挥版
     public boolean IsBalanced_Solution(TreeNode root) {
-        if (root == null){
+        if (root == null) {
             return true;
         }
-        int leftHeight = computeHeight(root.left);
-        int rightHeight = computeHeight(root.right);
+        int leftDepth = 0;
+        int rightDepth = 0;
 
-        if (Math.abs(leftHeight - rightHeight) > 1){
-            return false;
+        if (root.left != null) {
+            leftDepth = countDeepth(root.left);
         }
-        return true;
+        if (root.right != null) {
+            rightDepth = countDeepth(root.right);
+        }
+        if (Math.abs(leftDepth - rightDepth) > 1) {
+            return false;
+        }else {
+            return true;
+        }
+
     }
-    public int computeHeight(TreeNode root){
-        if (root == null){
+
+    public int countDeepth(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        if (root.left == null && root.right == null){
-            return 1;   // 叶子节点高度为1
-        }
-        int leftHeight = computeHeight(root.left);
-        int rightHeight = computeHeight(root.right);
-
-        int subHeight = leftHeight > rightHeight ? leftHeight : rightHeight;
-         // 加上本层的高度
-        return ++subHeight;
+        int currDepth = getMax(countDeepth(root.left), countDeepth(root.right)) + 1;
+        return currDepth;
     }
+
+    public int getMax(int a, int b) {
+        return a > b ? a : b;
+    }
+
+
+//    public boolean IsBalanced_Solution(TreeNode root) {
+//        if (root == null){
+//            return true;
+//        }
+//        int leftHeight = computeHeight(root.left);
+//        int rightHeight = computeHeight(root.right);
+//
+//        if (Math.abs(leftHeight - rightHeight) > 1){
+//            return false;
+//        }
+//        return true;
+//    }
+//    public int computeHeight(TreeNode root){
+//        if (root == null){
+//            return 0;
+//        }
+//        if (root.left == null && root.right == null){
+//            return 1;   // 叶子节点高度为1
+//        }
+//        int leftHeight = computeHeight(root.left);
+//        int rightHeight = computeHeight(root.right);
+//
+//        int subHeight = leftHeight > rightHeight ? leftHeight : rightHeight;
+//         // 加上本层的高度
+//        return ++subHeight;
+//    }
 }

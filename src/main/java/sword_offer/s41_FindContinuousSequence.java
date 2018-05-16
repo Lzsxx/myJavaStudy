@@ -20,40 +20,82 @@ public class s41_FindContinuousSequence {
         s41_FindContinuousSequence test = new s41_FindContinuousSequence();
         test.FindContinuousSequence(9);
     }
-    public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
-        ArrayList<ArrayList<Integer>> arrayLists = new ArrayList<>();
-        ArrayList<Integer> list = null;
-        int n = (int) Math.sqrt(2 * sum);   // 长度最多遍历到n
-        for (int length = n; length >= 2; length--) {  //长度最少从2开始
-            // 如果是奇数，直接用 sum % n 来判断
-            if ( (length & 1 ) == 1 && sum % length == 0 ){
-                list = new ArrayList<>();
-                int avg = sum / length;
-                int times = length / 2; // 取数字时向外延伸几圈
-                for (int i = times; i >= 1; i--) {
-                    list.add(avg - i);
-                }
-                list.add(avg);
-                for (int i = 1; i <= times; i++) {
-                    list.add(avg + i);
-                }
-                arrayLists.add(list);
-            }
-            // 如果是偶数，
-            if ( ((length & 1 ) == 0 ) && ((sum % length) * 2 == length)){
-                list = new ArrayList<>();
-                int avg = sum / length; // 这里取值的时候会偏左，所以后面要少加一个
-                int times = length / 2; // 取数字时向外延伸几圈
-                for (int i = times-1; i >= 1; i--) {   // 注意，这里少一圈
-                    list.add(avg - i);
-                }
-                list.add(avg);
-                for (int i = 1; i <= times; i++) {
-                    list.add(avg + i);
-                }
-                arrayLists.add(list);
-            }
+
+    // 临场发挥版
+    public ArrayList<ArrayList<Integer> > FindContinuousSequence(int sum) {
+        ArrayList<ArrayList<Integer> > lists = new ArrayList<>();
+        if (sum <= 1) {
+            return lists;
         }
-        return arrayLists;
+        int n = (int) Math.sqrt(2 * sum);
+        n = n > 2 ? n : 2;  // 确保n大于等于2
+        for (int i = n; i >= 2 ; i--) {
+            int avg = sum / i;  // 如果可能，平均数应为avg
+            if ((i & 1) == 0) { // 如果 i 是偶数
+                if ((avg + 0.5) * i == sum) {   // 这种情况下，以这个平均数类推可以得到正确的总数
+                    ArrayList<Integer> list = new ArrayList<>();
+                    list.add(avg);
+                    list.add(avg + 1);
+                    for (int j = 1; j < i / 2; j++) {
+                        list.add(avg - j);
+                        list.add(avg + 1 + j);
+                    }
+                    Collections.sort(list);
+                    lists.add(list);
+                }
+            }else {     // 如果 i 是奇数
+                if (avg * i == sum) {   //此时类推可以得到正确的sum
+                    ArrayList<Integer> list = new ArrayList<>();
+                    list.add(avg);
+                    for (int j = 1; j <= i / 2; j++) {
+                        list.add(avg - j);
+                        list.add(avg + j);
+                    }
+                    Collections.sort(list);
+                    lists.add(list);
+                }
+            }
+
+        }
+        return lists;
     }
+
+
+//    public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
+//        ArrayList<ArrayList<Integer>> arrayLists = new ArrayList<>();
+//        ArrayList<Integer> list = null;
+//        int n = (int) Math.sqrt(2 * sum);   // 长度最多遍历到n
+//        for (int length = n; length >= 2; length--) {  //长度最少从2开始
+//            // 如果是奇数，直接用 sum % n 来判断
+//            if ( (length & 1 ) == 1 && sum % length == 0 ){
+//                list = new ArrayList<>();
+//                int avg = sum / length;
+//                int times = length / 2; // 取数字时向外延伸几圈
+//                for (int i = times; i >= 1; i--) {
+//                    list.add(avg - i);
+//                }
+//                list.add(avg);
+//                for (int i = 1; i <= times; i++) {
+//                    list.add(avg + i);
+//                }
+//                arrayLists.add(list);
+//            }
+//            // 如果是偶数，
+//            if ( ((length & 1 ) == 0 ) && ((sum % length) * 2 == length)){
+//                list = new ArrayList<>();
+//                int avg = sum / length; // 这里取值的时候会偏左，所以后面要少加一个
+//                int times = length / 2; // 取数字时向外延伸几圈
+//                for (int i = times-1; i >= 1; i--) {   // 注意，这里少一圈
+//                    list.add(avg - i);
+//                }
+//                list.add(avg);
+//                for (int i = 1; i <= times; i++) {
+//                    list.add(avg + i);
+//                }
+//                arrayLists.add(list);
+//            }
+//        }
+//        return arrayLists;
+//    }
+
 }

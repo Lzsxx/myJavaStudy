@@ -9,40 +9,66 @@ package sword_offer;
 // 以第一个比根大的地方为分割点，如果后面都比大，那就继续比较
 // 如果后面有大有小，那就fail
 public class s23_VerifySquenceOfBST {
+//    临场发挥版
     public boolean VerifySquenceOfBST(int [] sequence) {
-        if (sequence.length < 1){
+        if (sequence.length < 1) {
             return false;
         }
-        return VerifySquenceOfBST(sequence, 0, sequence.length - 1);
+        return verify(sequence, 0, sequence.length - 1);
     }
-    public boolean VerifySquenceOfBST(int [] sequence, int start, int end) {
-        if (start >= end){  //如果分到最后只剩一个，则返回。//递归出口
+
+    public boolean verify(int[] seq, int low, int high) {
+        if (low >= high) {
             return true;
         }
-        int root = sequence[end];
-        int pivot = -1;
-        boolean findPivot = false;
-        for (int i = start; i < end; i++) {
-            if ( sequence[i] < root){
-                if (!findPivot){
-                    continue;   //在没有转折点之前，都继续进行，否则，
-                }else {
-                    return false;
-                }
-            }
-            if (sequence[i] > root ){
-                findPivot = true;
-                pivot = i;
+        int root = seq[high];
+        int left = 0;
+        int right = 0;
+        for (int i = high - 1; i >= low; i--) {
+            if (left == 0 && seq[i] > root) {   //遍历右子树
+                right ++;
+            }else if (left > 0 && seq[i] > root){      // 在遍历左子树时遇到大于的情况，大小大
+                return false;
+            }else if (seq[i] < root) {  // 遍历左子树
+                left ++;
             }
         }
-        if (!findPivot){    //那么就是都小于咯，都是左支,那么下一个分割点是end-1
-            return VerifySquenceOfBST(sequence, start, end - 1);
-        }else { //找到了分割点，可能是中间，或者都是右支
-            if (pivot == end - 1){  //都是右支
-                return VerifySquenceOfBST(sequence, start, end - 1);
-            }
-            // 如果走到这里，那就分割数组，进入递归
-            return VerifySquenceOfBST(sequence, start, pivot - 1) && VerifySquenceOfBST(sequence,pivot, end);
-        }
+        return verify(seq, 0, left - 1) && verify(seq, left, high - 1);
     }
+//    public boolean VerifySquenceOfBST(int [] sequence) {
+//        if (sequence.length < 1){
+//            return false;
+//        }
+//        return VerifySquenceOfBST(sequence, 0, sequence.length - 1);
+//    }
+//    public boolean VerifySquenceOfBST(int [] sequence, int start, int end) {
+//        if (start >= end){  //如果分到最后只剩一个，则返回。//递归出口
+//            return true;
+//        }
+//        int root = sequence[end];
+//        int pivot = -1;
+//        boolean findPivot = false;
+//        for (int i = start; i < end; i++) {
+//            if ( sequence[i] < root){
+//                if (!findPivot){
+//                    continue;   //在没有转折点之前，都继续进行，否则，
+//                }else {
+//                    return false;
+//                }
+//            }
+//            if (sequence[i] > root ){
+//                findPivot = true;
+//                pivot = i;
+//            }
+//        }
+//        if (!findPivot){    //那么就是都小于咯，都是左支,那么下一个分割点是end-1
+//            return VerifySquenceOfBST(sequence, start, end - 1);
+//        }else { //找到了分割点，可能是中间，或者都是右支
+//            if (pivot == end - 1){  //都是右支
+//                return VerifySquenceOfBST(sequence, start, end - 1);
+//            }
+//            // 如果走到这里，那就分割数组，进入递归
+//            return VerifySquenceOfBST(sequence, start, pivot - 1) && VerifySquenceOfBST(sequence,pivot, end);
+//        }
+//    }
 }

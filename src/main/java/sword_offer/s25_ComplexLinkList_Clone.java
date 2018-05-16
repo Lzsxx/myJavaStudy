@@ -9,42 +9,86 @@ package sword_offer;
 // 第3轮：将被复制节点和新节点间的指针断开，形成两个链表
 
 public class s25_ComplexLinkList_Clone {
+    // 临场发挥版
     public RandomListNode Clone(RandomListNode pHead)
     {
-        if (pHead == null){
+        if (pHead == null) {
             return null;
         }
         RandomListNode p = pHead;
-        // 第一轮，复制节点
-        while (p != null){
-            RandomListNode cloneP = new RandomListNode(p.label);
-            cloneP.random = null;
-            cloneP.next = p.next;
-            p.next = cloneP;
-            p = cloneP.next;
+
+        // 先复制,后断开链表
+        while (p != null) {
+            RandomListNode temp = p.next;
+            RandomListNode copyNode = new RandomListNode(p.label);
+            copyNode.next = p.next;
+            p.next = copyNode;
+            p = temp;
         }
-        // 第二轮；处理random
+        // 处理random
         p = pHead;
-        while (p != null){
-            if (p.random != null){
+        while (p != null) {
+            if (p.random != null) {
                 p.next.random = p.random.next;
             }
             p = p.next.next;
         }
-        // 第三轮：断开新旧链接
+        // 断开，同时处理random
         p = pHead;
-        RandomListNode newHead = p.next;
-        while ( p != null ){
-            RandomListNode nextP = p.next;
-            if (p.next != null){    //要注意处理p.next为null的情况，因为while循环里面并没有处理
-                p.next = p.next.next;
+        RandomListNode newHead = pHead.next;
+        while (p != null) {
+            RandomListNode copyNode = p.next;
+            if (copyNode.next != null) {
+                // 还原原来的指针，random没有动过，不用修正
+                p.next = copyNode.next;
+
+                // 修正复制节点的两个指针
+                copyNode.next = copyNode.next.next;
             }else {
                 p.next = null;
             }
-            p = nextP;
+            // 指向下一个节点
+            p = p.next;
         }
         return newHead;
     }
+
+//    public RandomListNode Clone(RandomListNode pHead)
+//    {
+//        if (pHead == null){
+//            return null;
+//        }
+//        RandomListNode p = pHead;
+//        // 第一轮，复制节点
+//        while (p != null){
+//            RandomListNode cloneP = new RandomListNode(p.label);
+//            cloneP.random = null;
+//            cloneP.next = p.next;
+//            p.next = cloneP;
+//            p = cloneP.next;
+//        }
+//        // 第二轮；处理random
+//        p = pHead;
+//        while (p != null){
+//            if (p.random != null){
+//                p.next.random = p.random.next;
+//            }
+//            p = p.next.next;
+//        }
+//        // 第三轮：断开新旧链接
+//        p = pHead;
+//        RandomListNode newHead = p.next;
+//        while ( p != null ){
+//            RandomListNode nextP = p.next;
+//            if (p.next != null){    //要注意处理p.next为null的情况，因为while循环里面并没有处理
+//                p.next = p.next.next;
+//            }else {
+//                p.next = null;
+//            }
+//            p = nextP;
+//        }
+//        return newHead;
+//    }
     class RandomListNode {
         int label;
         RandomListNode next = null;
