@@ -50,4 +50,45 @@ public class s45_isContinuous_PuKePai {
         }
         return false;
     }
+
+//
+//    public boolean isContinuous(int [] numbers) {
+//        if (numbers.length < 1) {
+//            return false;
+//        }
+//        Arrays.sort(numbers);
+//        int count = 0;
+//        int[] gap = new int[numbers.length - 1];
+//        int gapIndex = 0;
+//        if (numbers[0] == 0) {
+//            count ++;
+//        }
+//        for (int i = 1; i < numbers.length; i++) {
+//            if (numbers[i] == 0) {
+//                count ++;
+//            }else {
+//                int tempGap = numbers[i] - numbers[i - 1];
+//                if (tempGap == 0) {
+//                    return false;
+//                }else {
+//                    if (numbers[i - 1] == 0) {
+//                        continue;
+//                    }
+//                    gap[gapIndex++] = tempGap;
+//                }
+//            }
+//        }
+//        int gapSum = 0;
+//        boolean allOneFlag = true;
+//        for (int i = 0; i < gapIndex; i++) {
+//            if (gap[i] > 1) {
+//                gapSum += gap[i] - 1;
+//                allOneFlag = false;
+//            }
+//        }
+//        if (allOneFlag || (count >= gapSum)) {
+//            return true;
+//        }
+//        return false;
+//    }
 }

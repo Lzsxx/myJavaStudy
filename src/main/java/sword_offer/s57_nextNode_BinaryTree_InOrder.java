@@ -5,6 +5,49 @@ package sword_offer;
 
 
 public class s57_nextNode_BinaryTree_InOrder {
+//    临场发挥版：会改变树结构，不太好
+    //public TreeLinkNode GetNext(TreeLinkNode pNode)
+    //{
+    //    if (pNode == null) {
+    //        return null;
+    //    }
+    //    TreeLinkNode nextNode = null;
+    //    // 1、是否有父节点 ：无，则为根节点，取右子树的最左节点
+    //    if (pNode.next == null) {
+    //        return getLeftestNode(pNode.right);
+    //    }else {
+    //        // 有父节点，判断是左节点还是右节点：右节点
+    //        if (pNode.next.right == pNode) {
+    //            //2、有父节点，且是右节点，且是叶子节点(或右子节点为null)，返回父节点的父节点
+    //            if (pNode.right == null) {
+    //                // 断掉这个分支，递归前进，传入的参数是父节点，直到父节点的父节点是左子节点，走入下面的分支，否则一直断到根，返回null
+    //                pNode.next.right = null;
+    //                return GetNext(pNode.next);
+    //            }else {
+    //                // 2、 取以这个右节点为根的子树的最左
+    //                return getLeftestNode(pNode.right);
+    //            }
+    //        }else {
+    //            if ( pNode.right == null) {
+    //                // 3、有父节点，是左子树，是叶子节点（或右子节点为null），返回父节点
+    //                return pNode.next;
+    //            } else{
+    //                // 4、有父节点，是左子树，有右子树，则取右子树的最左
+    //                return getLeftestNode(pNode.right);
+    //            }
+    //        }
+    //    }
+    //}
+    //    public TreeLinkNode getLeftestNode(TreeLinkNode pNode) {
+    //        TreeLinkNode nextNode = pNode;
+    //        while (pNode != null) {
+    //            nextNode = pNode;
+    //            pNode = pNode.left;
+    //        }
+    //        return nextNode;
+    //    }
+
+
     public TreeLinkNode GetNext(TreeLinkNode pNode) {
         // 如果为空树，直接返回
         if (pNode == null){

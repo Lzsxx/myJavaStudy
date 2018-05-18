@@ -45,4 +45,46 @@ public class s66_range_of_robot {
         return count;
     }
 
+    // 临场发挥版
+    public int movingCount2(int threshold, int rows, int cols)
+    {
+        boolean[][] visit = new boolean[rows][cols];
+        int count = findPath(visit, rows, cols,0, 0, threshold);
+        return count;
+    }
+
+    public int findPath(boolean[][] visit, int rows, int cols, int currRow, int currCol, int threshold) {
+        if (currRow >= rows || currCol >= cols || computeThreshold(currRow ,currCol) > threshold) {
+            return 0;
+        }
+        visit[currRow][currCol] = true;
+        int count = 1;
+        if ( currRow + 1 < rows && !visit[currRow + 1][currCol]){
+            count += findPath(visit, rows, cols, currRow + 1, currCol, threshold);
+        }
+        if (currRow - 1 >= 0 && !visit[currRow - 1][currCol]){
+            count += findPath(visit, rows, cols, currRow - 1, currCol, threshold);
+        }
+        if (currCol + 1 < cols && !visit[currRow][currCol + 1]){
+            count += findPath(visit, rows, cols, currRow, currCol + 1, threshold);
+        }
+        if (currCol - 1 >= 0 && !visit[currRow][currCol - 1]){
+            count += findPath(visit, rows, cols, currRow, currCol - 1, threshold);
+        }
+        return count;
+    }
+
+    public int computeThreshold(int currRow, int currCol) {
+        int sum = 0;
+        while (currRow > 0) {
+            sum += currRow % 10;
+            currRow = currRow / 10;
+        }
+        while (currCol > 0) {
+            sum += currCol % 10;
+            currCol = currCol / 10;
+        }
+        return sum;
+    }
+
 }

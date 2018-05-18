@@ -47,4 +47,61 @@ public class s65_route_in_rectangle {
         }
         return false;
     }
+
+    // 临场发挥版
+
+    public int index = 0;   // 待匹配的字符
+    public boolean findFlag = false;
+    public boolean hasPath2(char[] matrix, int rows, int cols, char[] str)
+    {
+        char[][] myMat = new char[rows][cols];
+        boolean[][] visit = new boolean[rows][cols];
+        int k = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                myMat[i][j] = matrix[k++];
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                findPath(myMat, rows, cols, str, i, j, visit);
+                if (index >= str.length) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void findPath(char[][] matrix, int rows, int cols, char[] str, int currRow, int currCol, boolean[][] visit) {
+        if (currRow >= rows || currCol >= cols || findFlag) {
+            return;
+        }
+        if (matrix[currRow][currCol] == str[index]) {
+            visit[currRow][currCol] = true;
+            index ++;
+            if (index >= str.length) {
+                // 匹配完了，返回
+                findFlag = true;
+                return;
+            }
+            if ( currRow + 1 < rows && !visit[currRow + 1][currCol]){
+                findPath(matrix, rows, cols, str, currRow + 1, currCol, visit);
+            }
+            if (currRow - 1 >= 0 && !visit[currRow - 1][currCol]){
+                findPath(matrix, rows, cols, str, currRow - 1, currCol, visit);
+            }
+            if (currCol + 1 < cols && !visit[currRow][currCol + 1]){
+                findPath(matrix, rows, cols, str, currRow, currCol + 1, visit);
+            }
+            if (currCol - 1 >= 0 && !visit[currRow][currCol - 1]){
+                findPath(matrix, rows, cols, str, currRow, currCol - 1, visit);
+            }
+            // 如果走到了这里还没有退出，那么这一格就是要被放弃的，后面会进行回退
+            if (!findFlag) {   // 没有匹配完才需要进行这些回溯处理
+                visit[currRow][currCol] = false;
+                index--;
+            }
+        }
+    }
 }

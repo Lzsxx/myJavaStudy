@@ -29,30 +29,68 @@ public class s56_deleteDuplication_in_LinkedList {
             temp = temp.next;
         }
     }
-    public ListNode deleteDuplication(ListNode pHead)
-    {
-        if (pHead == null || pHead.next == null){
-            return pHead;
-        }
-        ListNode newHead = new ListNode(-1);
-        newHead.next = pHead;
-
-        ListNode lastSafe = newHead;
-        ListNode p = pHead;
-        while ( p != null && p.next != null ){
-            if (p.val == p.next.val){
-                int value = p.val;
-                while ( p != null && p.val == value ){ //需要跳过的
-                    p = p.next;
-                }
-                lastSafe.next = p;  // 跳过重复元素后，指向下一个，但这不稳定，如果下一轮发现它也重复，则还会改变指向
-            }else { // 可以加入链表的
-                lastSafe = p;   // 确定当前指向的next没有重复，移动向下
-                p = p.next;
-            }
-        }
-        return newHead.next;
+//     临场发挥版
+public ListNode deleteDuplication(ListNode pHead)
+{
+    if (pHead == null) {
+        return null;
     }
+    ListNode myHead = new ListNode(-1);
+    ListNode safeNode = myHead;
+    boolean lastWaitDelete = false;
+    ListNode last = pHead;
+    ListNode p = pHead.next;
+
+    while (p != null) {
+        if (last.val != p.val) {  // 下一个不同，那么p安全
+            if (lastWaitDelete) {   // 如果上一个是待被删除的，那么这两个不同就没有什么意义，应该开始比较下一组
+                lastWaitDelete = false;
+            }else {
+                safeNode.next = last;
+                safeNode = last;
+            }
+        }else {
+            // 下一个和这个点相同，那么这两个都要被删除
+            lastWaitDelete = true;
+        }
+        last = p;
+        p = p.next;
+    }
+    // 退出时，p为null，last没有比较的，如果不是被waitDelete标记，则可以加入
+    if (!lastWaitDelete) {
+        safeNode.next = last;
+        safeNode = last;
+    }
+    // 断尾工作
+    safeNode.next = null;
+
+    return myHead.next;
+}
+
+//    public ListNode deleteDuplication(ListNode pHead)
+//    {
+//        if (pHead == null || pHead.next == null){
+//            return pHead;
+//        }
+//        ListNode newHead = new ListNode(-1);
+//        newHead.next = pHead;
+//
+//        ListNode lastSafe = newHead;
+//        ListNode p = pHead;
+//        while ( p != null && p.next != null ){
+//            if (p.val == p.next.val){
+//                int value = p.val;
+//                while ( p != null && p.val == value ){ //需要跳过的
+//                    p = p.next;
+//                }
+//                lastSafe.next = p;  // 跳过重复元素后，指向下一个，但这不稳定，如果下一轮发现它也重复，则还会改变指向
+//            }else { // 可以加入链表的
+//                lastSafe = p;   // 确定当前指向的next没有重复，移动向下
+//                p = p.next;
+//            }
+//        }
+//        return newHead.next;
+//    }
 
     public static class ListNode {
         int val;

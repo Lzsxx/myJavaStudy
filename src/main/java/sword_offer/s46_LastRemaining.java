@@ -12,21 +12,45 @@ package sword_offer;
 import java.util.LinkedList;
 
 public class s46_LastRemaining {
-    public int LastRemaining_Solution(int n, int m) {
-        if (n == 0 || m == 0){
-            return -1;
-        }
-        // n是编号数，第m-1唱歌
-        LinkedList<Integer> list = new LinkedList<>();
-        for (int i = 0; i < n; i++) {   // 0 ~ n - 1
-            list.add(i);
-        }
-        // 开始踢出
-        int index = (m - 1) % list.size();
-        while (list.size() > 1){
-            list.remove(index);
-            index = (index + m - 1) % list.size();
-        }
-        return list.get(0);
+//    临时发挥版
+public int LastRemaining_Solution(int n, int m) {
+    if (n == 0 || m == 0) {
+        return -1;
     }
+    LinkedList<Integer> list = new LinkedList<>();
+    for (int i = 0; i < n; i++) {
+        list.add(i);
+    }
+    int count = 0;
+    int lastIndex = 0;
+    while (list.size() > 1) {
+        // 首先 (m - 1) % list.size() 表示以下标0为数数0开始时要提出的下标，但如果之前已经踢出过，
+        // 那么实际下标0是从lastIndex即被踢出的下一个数开始，由于那个数被踢出了，所以0跳lastIndex次后的下标，就是起始下标
+        // 而本轮该踢出的下标，则是(m - 1) % list.size() + lastIndex)，后面再加一个% list.size()，是解决循环的问题
+        // 由于list.size（）是动态提取，所以已经考虑到踢出数据后size的变化
+        int index = ((m - 1) % list.size() + lastIndex) % list.size();   // n-count是当前的长度，用lastIndex表示起点，加上当前长度，是模拟循环链表取模
+        list.remove(index);
+        lastIndex = index;
+    }
+    return list.get(0);
+}
+
+
+//    public int LastRemaining_Solution(int n, int m) {
+//        if (n == 0 || m == 0){
+//            return -1;
+//        }
+//        // n是编号数，第m-1唱歌
+//        LinkedList<Integer> list = new LinkedList<>();
+//        for (int i = 0; i < n; i++) {   // 0 ~ n - 1
+//            list.add(i);
+//        }
+//        // 开始踢出
+//        int index = (m - 1) % list.size();
+//        while (list.size() > 1){
+//            list.remove(index);
+//            index = (index + m - 1) % list.size();
+//        }
+//        return list.get(0);
+//    }
 }

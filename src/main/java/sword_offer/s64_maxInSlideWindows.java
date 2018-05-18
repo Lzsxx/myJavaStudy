@@ -45,4 +45,44 @@ public class s64_maxInSlideWindows {
         }
         return list;
     }
+
+    // 比较符合思路的版本：临场发挥版
+//    public ArrayList<Integer> maxInWindows(int [] num, int size)
+//    {
+//        ArrayList<Integer> list = new ArrayList<>();
+//
+//        if (num.length < size || size < 1) {
+//            return list;
+//        }
+//        int max = num[0];
+//        int maxIndex = 0;
+//        for (int i = 1; i < size; i++) {
+//            if (num[i] > max) {
+//                max = num[i];
+//                maxIndex = i;
+//            }
+//        }
+//        // 先是找到了第一个滑动窗口的最大值
+//        list.add(max);
+//        int winNum = num.length - size + 1;
+//        for (int i = size; i < num.length; i++) {
+//            if (max < num[i]) {
+//                max = num[i];
+//                maxIndex = i;
+//            }
+//            // 判断当前最大值是否还在窗口内,如果不在，重新统计
+//            if (i - maxIndex >= size) {
+//                maxIndex = i;
+//                max = num[maxIndex];
+//                for (int j = i - size + 1; j < i; j++) {
+//                    if (max < num[j]) {
+//                        max = num[j];
+//                        maxIndex = j;
+//                    }
+//                }
+//            }
+//            list.add(max);
+//        }
+//        return list;
+//    }
 }

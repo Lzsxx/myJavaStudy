@@ -1,204 +1,88 @@
 package test;
 
 
-import com.sun.java.swing.plaf.windows.WindowsGraphicsUtils;
-import jdk.nashorn.internal.ir.IfNode;
-import jdk.nashorn.internal.ir.JoinPredecessor;
-import sun.awt.image.ImageWatched;
-import sun.util.locale.provider.FallbackLocaleProviderAdapter;
-
-import javax.smartcardio.ATR;
-import javax.swing.*;
-import java.io.FileOutputStream;
-import java.sql.SQLClientInfoException;
-import java.util.Stack;
 import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
         Test test = new Test();
-        int[] arr = {2,4,3,6,3,2,5,5};
-        int[] a = new int[1];
-        int[] b = new int[1];
-        System.out.println(2 & 2);
-//        System.out.println(test.InversePairs(arr));;
-        test.FindContinuousSequence(15);
+        int[] arr = {2,3,4,2,6,2,5,1};
+        char[] matrix = {'A', 'B', 'C', 'E', 'S', 'F', 'C', 'S', 'A', 'D', 'E', 'E'};
+        char[] str = {'A', 'B', 'C', 'C', 'E', 'D'};
+//        System.out.println(test.hasPath(matrix, 3, 4, str));
+        ;
     }
 
-    public ArrayList<ArrayList<Integer> > FindContinuousSequence(int sum) {
-        ArrayList<ArrayList<Integer> > lists = new ArrayList<>();
-        if (sum <= 1) {
-            return lists;
+//    int count = 0;
+    public int InversePairs(int [] array) {
+        long count = mergeSort_split(array, 0, array.length - 1);
+        return (int) count % 1000000007;
+    }
+    public static long mergeSort_split(int[] arr, int low, int high){
+        long count = 0;
+        int mid = (low + high) / 2;
+        if (low < high){
+            count += mergeSort_split(arr, low, mid);
+            count += mergeSort_split(arr, mid+1, high);
+            count += merge(arr,low,high);
         }
-        int n = (int) Math.sqrt(2 * sum);
-        n = n > 2 ? n : 2;  // 确保n大于等于2
-        for (int i = n; i >= 2 ; i--) {
-            int avg = sum / i;  // 如果可能，平均数应为avg
-            if ((i & 1) == 0) { // 如果 i 是偶数
-                if ((avg + 0.5) * i == sum) {   // 这种情况下，以这个平均数类推可以得到正确的总数
-                    ArrayList<Integer> list = new ArrayList<>();
-                    list.add(avg);
-                    list.add(avg + 1);
-                    for (int j = 1; j < i / 2; j++) {
-                        list.add(avg - j);
-                        list.add(avg + 1 + j);
-                    }
-                    Collections.sort(list);
-                    lists.add(list);
-                }
-            }else {     // 如果 i 是奇数
-                if (avg * i == sum) {   //此时类推可以得到正确的sum
-                    ArrayList<Integer> list = new ArrayList<>();
-                    list.add(avg);
-                    for (int j = 1; j <= i / 2; j++) {
-                        list.add(avg - j);
-                        list.add(avg + j);
-                    }
-                    Collections.sort(list);
-                    lists.add(list);
-                }
+        return count % 1000000007;
+    }
+    public static long merge(int[] arr, int low, int high){
+        // 传入进来的数组arr实际上包含了要被merge的两个数组，以mid为分界线
+        // 第一个数组[low, mid]
+        // 第二个数组[mid+1, high]
+        long count = 0;
+        int mid = (low + high) / 2;
+        int sum = high - low + 1;
+        int[] temp = new int[sum];
+
+        int i = low;    // 第一个数组的起始指针
+        int j = mid + 1;    // 第二个数组的起始指针
+        int k = 0;
+        while ( i <= mid && j <= high){
+            if (arr[i] > arr[j]){
+                temp[k] = arr[j];   // 前面大，后面小，每次把小的去掉，如果前面的某一个比当前的大，那么其后面的都比这个数大
+                count += mid - i + 1;
+                j++;
+            }else {
+                temp[k] = arr[i];
+                i++;
             }
-
+            k++;
         }
-        return lists;
+        while ( i <= mid){
+            temp[k] = arr[i];
+            i++;
+            k++;
+        }
+        while ( j <= high){
+            temp[k] = arr[j];
+            j++;
+            k++;
+        }
+
+        for (int m = 0; m < sum; m++){
+            arr[low + m] = temp[m];
+        }
+        return  count % 1000000007;
     }
 
 
 
 
-
-
-
-
-    public int TreeDepth(TreeNode root) {
-        int max = 0;
-        LinkedList<TreeNode> stack = new LinkedList<>();
-        if (root == null) {
-            return max;
-        }
-        while (root != null) {
-            stack.push(root);
-            root = root.left;
-        }
-        TreeNode last = null;
-        while (!stack.isEmpty()) {
-            TreeNode p = stack.peek();
-            if (p.left == null && p.right == null) {
-                int temp = stack.size();
-                if (temp > max) {
-                    max = temp;
-                }
-            }
-            if (last != p.right && p.right != null) {
-                p = p.right;
-                while (p != null) {
-                    stack.push(p);
-                    p = p.left;
-                }
-                continue;
-            }
-            last = stack.pop();
-        }
-        return max;
-    }
-
-
-    public int findMin(int a, int b, int c) {
-        int min = a < b ? a : b;
-        min = min < c ? min : c;
-        return min;
-    }
-
-    public static void swap(int[] arr, int a, int b){
+    public void swap(char[] chs, int a, int b) {
         if (a == b) {
             return;
         }
-        arr[a] = arr[a] ^ arr[b];
-        arr[b] = arr[a] ^ arr[b];
-        arr[a] = arr[a] ^ arr[b];
-    }
-
-    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
-        ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
-        LinkedList<TreeNode> stack = new LinkedList<>();
-        if (root == null) {
-            return lists;
-        }
-        while (root != null) {
-            stack.push(root);
-            root = root.left;
-        }
-        TreeNode last = null;
-        while (!stack.isEmpty()) {
-            TreeNode p = stack.peek();
-            if (p.left == null && p.right == null) {
-                ArrayList<Integer> path = new ArrayList<>();
-                int sum = 0;
-                for (TreeNode t : stack) {
-                    path.add(t.val);
-                    sum += t.val;
-                }
-                if (sum == target) {
-                    Collections.reverse(path);
-                    lists.add(path);
-                }
-            }
-            if (last != p.right && p.right != null) {
-                p = p.right;
-                while (p != null) {
-                    stack.push(p);
-                    p = p.left;
-                }
-                continue;
-            }
-            last = stack.pop();
-        }
-        return lists;
-    }
-
-    public void itr(ArrayList<ArrayList<Integer>> lists,ArrayList<Integer> path, TreeNode root, int target) {
-        if (root == null) {
-            return;
-        }
-        path.add(root.val);
-        if (root.left != null) {
-            itr(lists, path, root.left, target);
-        }
-        if (root.right != null) {
-            itr(lists, path, root.right, target);
-        }
-        if (root.left == null && root.right == null) {
-            int sum = 0;
-            for (int a : path) {
-                sum += a;
-            }
-            if (sum == target) {
-                ArrayList<Integer> temp = new ArrayList<>(path);
-                lists.add(temp);
-            }
-
-        }
-        path.remove(path.size() - 1);
+        char temp = chs[a];
+        chs[a] = chs[b];
+        chs[b] = temp;
     }
 
 
-    public class RandomListNode {
-        int label;
-        RandomListNode next = null;
-        RandomListNode random = null;
 
-        RandomListNode(int label) {
-            this.label = label;
-        }
-    }
-    public class ListNode {
-        int val;
-        ListNode next = null;
 
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
     public class TreeNode {
         int val = 0;
         TreeNode left = null;
@@ -206,8 +90,11 @@ public class Test {
 
         public TreeNode(int val) {
             this.val = val;
+
         }
+
     }
+
 
 
 }
