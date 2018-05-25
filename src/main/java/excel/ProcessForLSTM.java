@@ -24,9 +24,10 @@ public class ProcessForLSTM {
 
     /***** 可配置项 *****/
     private static  String categoryFlag = "0";
-    private static  String rootPath = "E:\\excel\\";
+    private static  String rootPath = "E:\\turnout_excel\\";
     private static  String filePath = rootPath + originalDataMap.get(categoryFlag);
-    private static  String targetFile = rootPath + "target\\target.csv";
+    private static  String targetFile = rootPath + "target\\target2700.csv";
+    public static int MAX_LEN = 335;
 
     boolean debugFlag = false;
 
@@ -94,7 +95,7 @@ public class ProcessForLSTM {
                 int lastIndex = Integer.MIN_VALUE;
                 // 读取数据
                 ArrayList<String> stringList = new ArrayList<>();
-                stringList.add(String.valueOf(categoryFlag));
+                stringList.add(String.valueOf(categoryFlag));   // 添加类别编号
                 for (int row = 0; row < rows; row++)
                 {
                     try {
@@ -103,11 +104,22 @@ public class ProcessForLSTM {
                         if (value.equals("Y")) {
                             continue;
                         }
+                        // 将负数转化为0
+                        double dvalue = Double.parseDouble(value);
+                        if (dvalue < 0) {
+                            value="0";
+                        }
                         stringList.add(value);
                     }catch (NumberFormatException e){   // 如果读到非数值的数据，丢弃不管，处理下一行
                         continue;
                     }
                 }
+                // 如果处理完后，长度小于335，就补充-1，这里的335是包括了label的长度
+//                if (stringList.size() < MAX_LEN) {
+//                    for (int i = stringList.size(); i < MAX_LEN; i++) {
+//                        stringList.add("-1");
+//                    }
+//                }
                 // 遍历完一个sheet的所有行数写入excel
                 writeExcel(stringList);
                 break; // 只处理第一个sheet

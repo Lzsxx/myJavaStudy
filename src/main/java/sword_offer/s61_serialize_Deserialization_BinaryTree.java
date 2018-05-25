@@ -35,44 +35,97 @@ public class s61_serialize_Deserialization_BinaryTree {
 //        return sb.toString();
 //  }
 
+    // 临场发挥版
     String Serialize(TreeNode root) {
-        StringBuilder sb = new StringBuilder();
-        if (root == null){
-            return "#";
+        if (root == null) {
+            return "";
         }
-        processSub(root, sb);
+        // 先序遍历，遇到空就#
+        StringBuilder sb = new StringBuilder();
+        preOrder(root, sb);
         return sb.toString();
     }
-    StringBuilder processSub(TreeNode root, StringBuilder sb) {
-        if (sb.length() == 0){
-            sb.append( root.val );
-        }else {
-            sb.append("," +  root.val );
+
+    public void preOrder(TreeNode root, StringBuilder sb) {
+        if (root == null) {
+            if (sb.length() < 1) {
+                sb.append("#");
+            }else {
+                sb.append("," + "#");
+            }
+            return;
         }
-        if (root.left != null){
-            sb = processSub(root.left, sb);
+        // 先序，先处理
+        if (sb.length() < 1) {
+            sb.append(root.val);
         }else {
-            sb.append("," + "#");    // 用逗号分割
+            sb.append("," + root.val);
         }
-        if (root.right != null){
-            sb = processSub(root.right, sb);
-        }else {
-            sb.append("," + "#");    // 用逗号分割
-        }
-        return sb;
+        preOrder(root.left, sb);
+        preOrder(root.right, sb);
+
     }
-    int index = -1;
     TreeNode Deserialize(String str) {
-        index ++;
-        String[] chs = str.split(",");
-        TreeNode node = null;
-        if ( !chs[index].equals("#")){
-            node = new TreeNode(Integer.parseInt(chs[index]));
-            node.left = Deserialize(str);
-            node.right = Deserialize(str);
+        if (str.equals("")) {
+            return null;
         }
-        return node;    // 如果遇到＃号，就返回了，不往下，也不新建对象
+        String[] strs = str.split(",");
+        return preOrderBuild(strs);
     }
+    public  int index = -1;
+
+    public TreeNode preOrderBuild(String[] strs) {
+        index ++;
+        if (strs[index].equals("#")) {
+            return null;
+        }else {
+            TreeNode temp = new TreeNode(Integer.parseInt(strs[index]));
+            temp.left = preOrderBuild(strs);
+            temp.right = preOrderBuild(strs);
+            return temp;
+        }
+    }
+
+
+// 旧版
+//    String Serialize(TreeNode root) {
+//        StringBuilder sb = new StringBuilder();
+//        if (root == null){
+//            return "#";
+//        }
+//        processSub(root, sb);
+//        return sb.toString();
+//    }
+//    StringBuilder processSub(TreeNode root, StringBuilder sb) {
+//        if (sb.length() == 0){
+//            sb.append( root.val );
+//        }else {
+//            sb.append("," +  root.val );
+//        }
+//        if (root.left != null){
+//            sb = processSub(root.left, sb);
+//        }else {
+//            sb.append("," + "#");    // 用逗号分割
+//        }
+//        if (root.right != null){
+//            sb = processSub(root.right, sb);
+//        }else {
+//            sb.append("," + "#");    // 用逗号分割
+//        }
+//        return sb;
+//    }
+//    int index = -1;
+//    TreeNode Deserialize(String str) {
+//        index ++;
+//        String[] chs = str.split(",");
+//        TreeNode node = null;
+//        if ( !chs[index].equals("#")){
+//            node = new TreeNode(Integer.parseInt(chs[index]));
+//            node.left = Deserialize(str);
+//            node.right = Deserialize(str);
+//        }
+//        return node;    // 如果遇到＃号，就返回了，不往下，也不新建对象
+//    }
 
 
     public static class TreeNode {
