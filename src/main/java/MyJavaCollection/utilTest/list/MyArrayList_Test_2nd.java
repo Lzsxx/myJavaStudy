@@ -10,7 +10,7 @@ public class MyArrayList_Test_2nd {
     public static void main(String[] args) {
 
         /**
-         * test add()
+         * ztest add()
          */
 
         MyArrayList<Integer> myArrayList = new MyArrayList<>();

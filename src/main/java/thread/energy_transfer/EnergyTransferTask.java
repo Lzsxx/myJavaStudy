@@ -32,7 +32,6 @@ public class EnergyTransferTask implements Runnable {
                 e.printStackTrace();
             }
         }
-
     }
 }
 

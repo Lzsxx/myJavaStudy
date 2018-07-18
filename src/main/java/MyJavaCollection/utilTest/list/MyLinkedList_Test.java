@@ -7,7 +7,7 @@ import MyJavaCollection.util.list.MyListIterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-// test Add Set Get
+// ztest Add Set Get
 public class MyLinkedList_Test {
     public static void main(String[] args) {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();

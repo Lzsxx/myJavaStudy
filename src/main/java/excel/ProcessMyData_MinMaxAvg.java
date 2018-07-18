@@ -11,6 +11,7 @@ import java.util.*;
 public class ProcessMyData_MinMaxAvg {
     private static final Map<String, String> originalDataMap = new HashMap<>();
     static {
+        originalDataMap.put("0", "normal");
         originalDataMap.put("1", "error_1_foreignBody");
         originalDataMap.put("2", "error_2_suddenlyStop");
         originalDataMap.put("3", "error_3_zigzagCurrent");
@@ -22,18 +23,18 @@ public class ProcessMyData_MinMaxAvg {
     }
 
     /***** 可配置项 *****/
-    private static  String categoryFlag = "1";
-    private static  int[] interval = {1, 2, 9, 10, 11, 20}; //6个阶段
-    private static  String rootPath = "E:\\excel\\";
+    private static  String categoryFlag ;
+    private static  int[] interval = {1, 2, 3, 4,5,6,7,8, 9, 10, 15, 20}; //12个阶段
+    private static  String rootPath = "E:\\turnout_excel\\";
     private static  String filePath = rootPath + originalDataMap.get(categoryFlag);
-    private static  String targetFile = rootPath + "target\\target.csv";
+    private static  String targetFile = rootPath + "target\\target_minmax_12.csv";
 
     boolean debugFlag = false;
 
 
     public static void main(String[] args) {
         ProcessMyData_MinMaxAvg data = new ProcessMyData_MinMaxAvg();
-        for (int i = 1; i <= originalDataMap.size(); i++) {
+        for (int i = 0; i < originalDataMap.size(); i++) {
             categoryFlag = String.valueOf(i);
             filePath = rootPath + originalDataMap.get(categoryFlag);
             data.getAllExcel();
@@ -48,9 +49,6 @@ public class ProcessMyData_MinMaxAvg {
             for (File f : listFiles){
                 if (f.getName().endsWith(".xls")){
                     System.out.println(f.getName());
-                    if (f.getName().equalsIgnoreCase("0.4,0.6.xls")){
-                        debugFlag = true;
-                    }
                     readExcel(f);
                 }
             }
@@ -142,9 +140,6 @@ public class ProcessMyData_MinMaxAvg {
         Map<Integer, Double> maxMap = new HashMap<>();    // 保存最大值
         Map<Integer, Double> avgMap = new HashMap<>();    // 保存平均值
 
-        if (debugFlag){
-            System.out.println("Stop");
-        }
 
         for (int i = 0; i < interval.length; i++) {
             // 有多少个interval，那么最多会有多少个对于与map的list，但是有的list可能没有值，为null,所以这里要退出本次循环

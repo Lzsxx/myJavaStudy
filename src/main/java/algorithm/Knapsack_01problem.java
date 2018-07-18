@@ -84,7 +84,15 @@ public class Knapsack_01problem {
         }
 
         //输出计算过程的二维数组
+        System.out.println("\n\n");
         for (int[] row : countMax) {
+            for (int col : row){
+                System.out.print(col+"\t");
+            }
+            System.out.println();
+        }
+        // 输出path的值
+        for (int[] row : path) {
             for (int col : row){
                 System.out.print(col+"\t");
             }

@@ -1,0 +1,5 @@
+package ztest;
+
+class myTest {
+    
+}

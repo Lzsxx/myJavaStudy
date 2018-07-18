@@ -28,7 +28,7 @@ public class Stage extends Thread {
         armyOfSuiDynasty.start();
         armyOfRevolt.start();
 
-        // 作战过程中，线程休眠，大家专心观看军队厮杀
+        // 作战过程中，Stage让出CPU，留出时间给军队厮杀,
         try {
             Thread.sleep(50);
         } catch (InterruptedException e) {

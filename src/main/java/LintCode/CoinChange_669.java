@@ -14,7 +14,7 @@ public class CoinChange_669 {
 //        int[] coins = {1,2,20,41,30,40,34,43,47,38,26,39,25,42,37,23,28,49,27};
         int[] coins = {1,2,5};
         System.out.println(test.coinChange(coins, 5));
-//        test.coinChange(coins, 41010);
+//        ztest.coinChange(coins, 41010);
     }
     /**
      * @param coins: a list of integer
