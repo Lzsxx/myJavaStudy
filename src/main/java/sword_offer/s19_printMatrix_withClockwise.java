@@ -47,7 +47,7 @@ public class s19_printMatrix_withClockwise {
 
         // 只剩一个元素
         if (left == right && top == bottom){
-            list.add(matrix[left][top]);
+            list.add(matrix[top][left]);
         }
         // 只剩一行
         if (left < right && top == bottom){

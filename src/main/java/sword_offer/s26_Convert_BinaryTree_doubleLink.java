@@ -11,8 +11,41 @@ import java.util.LinkedList;
 
 // 思路：
 public class s26_Convert_BinaryTree_doubleLink {
-    // 临场发挥版，非递归
     public TreeNode Convert(TreeNode pRootOfTree) {
+        if (pRootOfTree == null) {
+            return null;
+        }
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        TreeNode p = pRootOfTree;
+        while (p != null) {
+            stack.push(p);
+            p = p.left;
+        }
+        TreeNode rt = stack.peek();
+        TreeNode lastVisit = null;
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+
+            // 中序遍历
+            curr.left = lastVisit;
+            if (lastVisit != null) {
+                lastVisit.right = curr;
+            }
+            lastVisit = curr;
+
+            // 右子分支进栈
+            if (curr.right != null) {
+                p = curr.right;
+                while (p != null) {
+                    stack.push(p);
+                    p = p.left;
+                }
+            }
+        }
+        return rt;
+    }
+    // 临场发挥版，非递归
+    public TreeNode Convert2(TreeNode pRootOfTree) {
         if (pRootOfTree == null) {
             return null;
         }

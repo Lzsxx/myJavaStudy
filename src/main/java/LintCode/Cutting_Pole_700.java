@@ -18,6 +18,28 @@ import java.util.*;
 
     public int cutting(int[] prices, int n) {
         // Write your code here
+        int[] bucket = new int[n + 1];
+        // 初始化
+        bucket[0] = 0;
+        for (int i = 1; i <= n; i++) {
+            bucket[i] = Integer.MIN_VALUE;  // 假设表示负无穷
+        }
+        // 开始计算:一维数组，正序, 转移数组： max{ bucket[v], bucket[v - ci] + wi  }
+        for (int i = 1; i <= prices.length; i++) {   // 横坐标为第几个物品
+            for (int j = 1; j <= n; j++) {  // 纵坐标为容量
+                if (j >= i) {   // 只有当总长度大于等于分割段的时候，才需要进行分割，否则，维持之前的值不变
+                    bucket[j] = Math.max(bucket[j], bucket[j - i] + prices[i - 1]);
+                }
+            }
+        }
+//        for (int i = 0; i < bucket.length; i++) {
+//            System.out.println(bucket[i]);
+//        }
+        return bucket[n];
+    }
+
+    public int cutting2(int[] prices, int n) {
+        // Write your code here
         int[] F = new int[n + 1];
 
         for (int i = 1; i <= n; i++) {

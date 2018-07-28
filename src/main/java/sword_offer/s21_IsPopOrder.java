@@ -1,6 +1,7 @@
 package sword_offer;
 
 import java.util.LinkedList;
+import java.util.Stack;
 //输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。
 // 假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，
 // 序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的
@@ -42,7 +43,32 @@ public boolean IsPopOrder(int [] pushA,int [] popA) {
     }else {
         return false;
     }
+
 }
+
+    public boolean IsPopOrder2(int [] pushA,int [] popA) {
+        Stack<Integer> stack = new Stack<>();
+        int curr = 0;
+        for (int i = 0; i < popA.length; i++) {
+            if (!stack.isEmpty() && popA[i] == stack.peek()) {
+                stack.pop();
+            }else {
+                while (curr < popA.length && popA[i] != pushA[curr]) {
+                    stack.push(pushA[curr]);
+                    curr++;
+                }
+                if (curr >= pushA.length) {
+                    return false;
+                }
+                // 出来时，popA[i] == pushA[curr]，一进栈就要出来，干脆跳过就好
+                if (popA[i] == pushA[curr]) {
+                    curr++;
+                    continue;
+                }
+            }
+        }
+        return true;
+    }
 
 
 //    public boolean IsPopOrder(int [] pushA,int [] popA) {

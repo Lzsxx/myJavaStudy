@@ -43,28 +43,28 @@ public class s44_ReverseSentence {
         }
     }
 
-//    public String ReverseSentence(String str) {
-//        char[] chs = str.toCharArray();
-//        String[] strings = str.split(" ");
-//        // 分开调整
-//        int indexStart = 0;
-//        for (int i = 0; i < strings.length; i++) {
-//            int indexEnd = indexStart + strings[i].length() - 1;
-//            reverse2(chs, indexStart, indexEnd);
-//            indexStart = indexEnd + 2 ;
-//        }
-//        // 全部调整
-//        reverse2(chs, 0, chs.length - 1);
-//        return String.valueOf(chs);
-//    }
-//    public char[] reverse2(char[] chs, int low, int high){
-//        while (low < high){
-//            char temp = chs[low];
-//            chs[low] = chs[high];
-//            chs[high] = temp;
-//            low ++;
-//            high --;
-//        }
-//        return chs;
-//    }
+    public String ReverseSentence222(String str) {
+        char[] chs = str.toCharArray();
+        String[] strings = str.split(" ");
+        // 分开调整
+        int indexStart = 0;
+        for (int i = 0; i < strings.length; i++) {
+            int indexEnd = indexStart + strings[i].length() - 1;
+            reverse2(chs, indexStart, indexEnd);
+            indexStart = indexEnd + 2 ;
+        }
+        // 全部调整
+        reverse2(chs, 0, chs.length - 1);
+        return String.valueOf(chs);
+    }
+    public char[] reverse2(char[] chs, int low, int high){
+        while (low < high){
+            char temp = chs[low];
+            chs[low] = chs[high];
+            chs[high] = temp;
+            low ++;
+            high --;
+        }
+        return chs;
+    }
 }

@@ -29,8 +29,50 @@ public class s56_deleteDuplication_in_LinkedList {
             temp = temp.next;
         }
     }
+    // 临场发挥版2：遇到重复的就直接跳过
+    public ListNode deleteDuplication(ListNode pHead)
+    {
+        if (pHead == null) {
+
+            return null;
+        }
+        ListNode rt = new ListNode(-1);
+        ListNode head = rt;
+        // 维护一个last指向之前的元素，一个curr指向当前元素，如果两者不等，last是安全可添加的
+        // 如果两者相等，移动last知道不相等，curr指向last.next，继续开始比较
+        ListNode last = pHead;
+        ListNode curr = pHead.next;
+        while (curr != null) {
+            if (last.val != curr.val) { // Last安全了
+                head.next = last;
+                head = head.next;
+                last = curr;
+                curr = curr.next;
+            }else { // 相等的情况下
+                int currVal = curr.val;
+                while (last != null && last.val == currVal) {
+                    last = last.next;
+                }
+                // 跳过了相同的，开始比较后面的，如果已经到末尾，结束
+                if (last == null) {
+                    head.next = null;
+                    head = head.next;
+                    break;
+                }
+                curr = last.next;
+            }
+        }
+        if (head != null) { // 如果没有给head一个完结，则last依然是安全待处理的
+            head.next = last;
+            head = head.next;
+        }
+
+        return rt.next;
+    }
+
+
 //     临场发挥版
-public ListNode deleteDuplication(ListNode pHead)
+public ListNode deleteDuplication2(ListNode pHead)
 {
     if (pHead == null) {
         return null;

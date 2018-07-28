@@ -12,8 +12,30 @@ package sword_offer;
 import java.util.LinkedList;
 
 public class s46_LastRemaining {
+    // 临场发挥递归版，更容易理解
+    public int LastRemaining_Solution(int n, int m) {
+        if (n == 0 || m == 0) {
+            return -1;
+        }
+
+        LinkedList<Integer> list = new LinkedList();
+        for (int i = 0; i < n; i++) {
+            list.add(i);
+        }
+        return remove(list, 0, m); // 从0开始，移除第m个数
+    }
+
+    public int remove(LinkedList<Integer> list,int start, int removeNode) {
+        if (list.size() == 1) {
+            return list.get(0);
+        }
+        int idx = (removeNode - 1 + start) % list.size();
+        list.remove(idx);
+        return remove(list, idx, removeNode);   // 移除后，下一个起始点就是idx指向的点
+    }
+
 //    临时发挥版
-public int LastRemaining_Solution(int n, int m) {
+public int LastRemaining_Solution2(int n, int m) {
     if (n == 0 || m == 0) {
         return -1;
     }

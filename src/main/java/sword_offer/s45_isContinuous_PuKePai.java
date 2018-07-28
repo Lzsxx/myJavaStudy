@@ -17,7 +17,39 @@ public class s45_isContinuous_PuKePai {
         boolean result = test.isContinuous(num);
         System.out.println(result);
     }
+    // 临场发挥版
     public boolean isContinuous(int [] numbers) {
+        if (numbers.length < 1) {
+            return false;
+        }
+        Arrays.sort(numbers);
+        int count = 0;
+
+        // 统计0个数
+        for (int num : numbers) {
+            if (num == 0) {
+                count++;
+            }
+        }
+        for (int i = count; i < numbers.length - 1; i++) {
+            int gap = numbers[i+1] - numbers[i];
+            if (gap == 1) {
+                continue;
+            } else if (gap > 1 ) {
+                count = count - (gap - 1);
+                if (count < 0) {
+                    return false;
+                }
+            }else {
+                return false;   // gap为0，表示有两个相同的数，无论如何无法组成顺子
+            }
+        }
+        return true;
+    }
+
+
+    // 旧版
+    public boolean isContinuous2(int [] numbers) {
         if (numbers.length < 1){
             return false;
         }
