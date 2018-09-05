@@ -1,9 +1,5 @@
 package ztest;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.concurrent.ConcurrentHashMap;
-
 class ttt {
     public static void main(String[] args) {
         Bear bear = new Bear(); // call Father constructor:kind:bear
@@ -13,6 +9,7 @@ class ttt {
         System.out.println(blackBear.toString());   // kind:bear, color:black
     }
 }
+
 class Bear {
     private String kind = "bear";
     @Override
@@ -23,7 +20,8 @@ class Bear {
         System.out.println("call Father constructor:" + toString());
     }
 }
-class BlackBear extends Bear{
+
+class BlackBear extends Bear {
     private String color = "black";
     @Override
     public String toString() {
