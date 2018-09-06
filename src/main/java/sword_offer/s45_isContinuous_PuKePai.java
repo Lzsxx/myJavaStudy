@@ -7,7 +7,6 @@ package sword_offer;
 // 最后来比较0和gap的个数，如果0的个数大于等于gap数，就能组成顺子
 
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class s45_isContinuous_PuKePai {
@@ -32,7 +31,7 @@ public class s45_isContinuous_PuKePai {
             }
         }
         for (int i = count; i < numbers.length - 1; i++) {
-            int gap = numbers[i+1] - numbers[i];
+            int gap = Math.abs(numbers[i+1] - numbers[i]);
             if (gap == 1) {
                 continue;
             } else if (gap > 1 ) {

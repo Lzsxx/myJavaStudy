@@ -29,7 +29,7 @@ public class s46_LastRemaining {
         if (list.size() == 1) {
             return list.get(0);
         }
-        int idx = (removeNode - 1 + start) % list.size();
+        int idx = (removeNode - 1 + start) % list.size();   // 从start开始算，移动removeNode-1次，第removeNode-1的那个数，就要被移除
         list.remove(idx);
         return remove(list, idx, removeNode);   // 移除后，下一个起始点就是idx指向的点
     }

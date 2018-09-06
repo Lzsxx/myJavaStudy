@@ -21,7 +21,9 @@ public class s26_Convert_BinaryTree_doubleLink {
             stack.push(p);
             p = p.left;
         }
+
         TreeNode rt = stack.peek();
+
         TreeNode lastVisit = null;
         while (!stack.isEmpty()) {
             TreeNode curr = stack.pop();
