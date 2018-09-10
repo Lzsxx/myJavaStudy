@@ -1,7 +1,5 @@
 package ztest;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 
@@ -15,10 +13,6 @@ public class rrr {
 //        System.out.println(arr.toString());
 //        System.out.println(Arrays.toString(arr));
 //        System.out.println(ArrayUtils.toString(arr));
-        System.out.println(StringUtils.join(arrr, ",,,"));
-        System.out.println(arrr.toString());
-        arr = ArrayUtils.addAll(arr, arrr);
-        System.out.println(Arrays.toString(arr));
 
 
     }
