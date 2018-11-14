@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class ExtractAE_main {
     public static void main(String[] args) {
-        String statsFile = "E:\\Code\\processData\\checkimage_stats.txt";
+        String statsFile = "E:\\Code\\processData\\3-6_checkimage_stats.txt";
         String middleFile = "E:\\Code\\processData\\stats_to_summary.txt";
         String outputFile = "E:\\Code\\processData\\AE原始记录.csv";
         /** change!!! **/
@@ -33,6 +33,9 @@ public class ExtractAE_main {
             File writename = new File(outputFile); // 相对路径，如果没有则要建立一个新的output。txt文件
             writename.createNewFile(); // 创建新文件
             BufferedWriter out = new BufferedWriter(new FileWriter(writename, false));
+
+//            先写入一个[，配合后续
+            out.write("[");
 
             /* 读入TXT文件 */
             String pathname = inputFile; // 绝对路径或相对路径都可以，这里是绝对路径，写入文件时演示相对路径
@@ -91,9 +94,9 @@ public class ExtractAE_main {
                         }
                         // 统计完后比较，如果secondMax不是最小值，且等于max，则写入两个，否则，写入一个数
                         if (secondMax != Integer.MIN_VALUE && secondMax == max) {
-                            out.write(secongMaxIndex+ "" + maxIndex + ",\n");
+                            out.write(secongMaxIndex+ "" + maxIndex + "],\n[");
                         }else {
-                            out.write( maxIndex + ",\n");
+                            out.write( maxIndex + "],\n[");
                         }
                         outputFlag = false;
                         outputCount = 0;
@@ -115,7 +118,7 @@ public class ExtractAE_main {
                 Matcher matcherDivid = dividPat.matcher(line);
                 if( matcherDivid.find()) {
                     String point = matcherDivid.group(0);
-                    out.write(point+",\n");
+                    out.write(point+",\n[");
                 }
             }
             reader.close();
