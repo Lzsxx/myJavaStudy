@@ -15,7 +15,7 @@ public class ExtractSummary {
 // 使用注意：1、设置读取和输出的路径
 // 2、 注意设置每读取多少个number就换行
 
-    public static void extractSummary(String inputFile, String outputFile, int VarNum) {
+    public static void extractSummary(String inputFile, String outputFile) {
         try { // 防止文件建立或读取失败，用catch捕捉错误并打印，也可以throw
 
             // 输入变量有48个，所以每隔48个分一行

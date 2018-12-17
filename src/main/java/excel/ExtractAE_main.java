@@ -12,19 +12,16 @@ import java.util.regex.Pattern;
 
 public class ExtractAE_main {
     public static void main(String[] args) {
-        String statsFile = "E:\\Code\\processData\\3-6_checkimage_stats.txt";
-        String middleFile = "E:\\Code\\processData\\stats_to_summary.txt";
-        String outputFile = "E:\\Code\\processData\\AE原始记录.csv";
-        /** change!!! **/
-        // 输入变量有48个，所以每隔48个分一行
-//        final int VarNum = 48;
-        final int VarNum = 64;
+        String statsFile = "C:\\my_code\\processData\\checkimage_stats.txt";
+        String middleFile = "C:\\my_code\\processData\\stats_to_summary.txt";
+        String outputFile = "C:\\my_code\\processData\\AE原始记录.csv";
+        /** change!  **/
         final int outputNum = 10;
 
-        ExtractSummary.extractSummary(statsFile, middleFile, VarNum);
-        extractAE(middleFile, outputFile, VarNum, outputNum);
+        ExtractSummary.extractSummary(statsFile, middleFile);
+        extractAE(middleFile, outputFile, outputNum);
     }
-    public static void extractAE(String inputFile,String outputFile, int VarNum, int outputNum) {
+    public static void extractAE(String inputFile,String outputFile, int outputNum) {
         try { // 防止文件建立或读取失败，用catch捕捉错误并打印，也可以throw
 
             int count = 0;
