@@ -27,7 +27,7 @@ public class Spider_JinJiang_Main {
          * 只需传入想要下载的小说的封面URL，就能下载全部免费章节
          */
         // 爬取参数
-        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=3090427";
+        String baseUrl = "http://www.jjwxc.net/onebook.php?novelid=2210223";
         // html里小说名字的标志
         String novelMark = "<span itemprop=\"articleSection\">(.*?)</span>";
         // html里章节标题的标志
@@ -39,11 +39,11 @@ public class Spider_JinJiang_Main {
         // 网页编码
         Charset charsetName = Charset.forName("gb2312");
         // 存储地址
-        String destFilePath = "E:\\Code\\JavaStudy_novel\\novel_Jinjiang\\";  // win
+        String destFilePath = "C:\\my_code\\JavaStudy_novel\\novel_Jinjiang\\";  // win
 //        String destFilePath = "/Users/lzs/Documents/fiction/";      // mac
 
         // 如果存在同名，是否覆盖？默认不覆盖
-        Boolean coverOld = true;
+        boolean coverOld = true;
         int chapterCount = 0;
         int vipBegin = 0;
 

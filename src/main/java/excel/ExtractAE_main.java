@@ -12,16 +12,20 @@ import java.util.regex.Pattern;
 
 public class ExtractAE_main {
     public static void main(String[] args) {
-        String statsFile = "C:\\my_code\\processData\\checkimage_stats.txt";
+        String statsFile = "C:\\my_code\\processData\\3_1&2_0.03_checkmynet_stats.txt";
         String middleFile = "C:\\my_code\\processData\\stats_to_summary.txt";
         String outputFile = "C:\\my_code\\processData\\AE原始记录.csv";
         /** change!  **/
-        final int outputNum = 10;
+        final int outputNum = 3;
+
+        boolean hasNormalize = true;   // 数据是否分为正则化和非正则化
+        boolean getNormalize = false;    // 只有当正则化时才有效
+        /** change end **/
 
         ExtractSummary.extractSummary(statsFile, middleFile);
-        extractAE(middleFile, outputFile, outputNum);
+        extractAE(middleFile, outputFile, outputNum, hasNormalize, getNormalize);
     }
-    public static void extractAE(String inputFile,String outputFile, int outputNum) {
+    public static void extractAE(String inputFile,String outputFile, int outputNum, boolean hasNormalize, boolean getNormalize) {
         try { // 防止文件建立或读取失败，用catch捕捉错误并打印，也可以throw
 
             int count = 0;
@@ -40,8 +44,18 @@ public class ExtractAE_main {
             InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // 建立一个输入流对象reader
             BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
 
-            String inputMark = "input\\[\\d+?\\]\\s=\\s(.*)\\.";
-//            String inputMark = "input\\[\\d+?\\]\\s=\\s(.*)\\.\\sNormalized";
+            String inputMark = "";
+            if (!hasNormalize) {
+                // 无Non-Normalized的版本
+                inputMark = "input\\[\\d+?\\]\\s=\\s(.*)\\.";
+            }else{
+                if (getNormalize) {
+                    inputMark = "input\\[\\d+?\\]\\s=\\s(.*)\\.\\sNon-Normalized";   // 取Normalized的版本
+                } else{
+                    inputMark = "input\\[\\d+?\\]\\s=\\s(.*)\\.\\sNon-Normalized:\\s(.*)\\.";  // 取Non-Normalized的版本
+
+                }
+            }
             ArrayList<String> strList = new ArrayList<>();
             Pattern titlePat = Pattern.compile(inputMark);
 
@@ -105,7 +119,12 @@ public class ExtractAE_main {
                 // 如果不是output行，就开始判断是否是input行
                 Matcher matcherTitle = titlePat.matcher(line);
                 if( matcherTitle.find()) {
-                    String digital = matcherTitle.group(1);
+                    String digital = "";
+                    if (hasNormalize && !getNormalize) {
+                        digital = matcherTitle.group(2);
+                    }else {
+                        digital = matcherTitle.group(1);
+                    }
                     out.write(digital+",");
                     System.out.println("digital: "+  digital);
                     continue;
