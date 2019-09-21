@@ -1,9 +1,5 @@
 package sword_offer;
 
-import temp.Solution;
-
-import java.util.Stack;
-
 // 输入一个链表，输出该链表中倒数第k个结点。
 // 思路：用两个指针i和j,当i走了k-1步之后，j也开始走，当i到达tail时，两者之间的下标在数值上相差k-1，所以j就是倒数第k个
 public class s14_FindKthToTail {

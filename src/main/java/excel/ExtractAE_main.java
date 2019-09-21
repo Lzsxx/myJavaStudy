@@ -12,14 +12,14 @@ import java.util.regex.Pattern;
 
 public class ExtractAE_main {
     public static void main(String[] args) {
-        String statsFile = "C:\\my_code\\processData\\3_1&2_0.03_checkmynet_stats.txt";
+        String statsFile = "C:\\my_code\\processData\\1_2&3_0.04_checkmynet_stats.txt";
         String middleFile = "C:\\my_code\\processData\\stats_to_summary.txt";
         String outputFile = "C:\\my_code\\processData\\AE原始记录.csv";
         /** change!  **/
         final int outputNum = 3;
 
         boolean hasNormalize = true;   // 数据是否分为正则化和非正则化
-        boolean getNormalize = false;    // 只有当正则化时才有效
+        boolean getNormalize = true;    // 只有当正则化时才有效
         /** change end **/
 
         ExtractSummary.extractSummary(statsFile, middleFile);

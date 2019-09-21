@@ -28,14 +28,14 @@ public class ShellSort {
         /***** 对应插入排序中优化版本1 *****/
 //        for (int r = arr.length / 2; r >= 1; r/=2){
 //            for (int i = r; i < arr.length ; i++) { // 遍历从r~arr.length的数
-//                int temp = arr[i];  //0是分组里的第一个数，不用比较，需要比较的是0后面的第一个数：下标为r的数
+//                int ztemp = arr[i];  //0是分组里的第一个数，不用比较，需要比较的是0后面的第一个数：下标为r的数
 //                                    // 第二轮时1是第一个数，从r+1开始比较
 //                int j = i;
-//                while ( j-r >= 0 && temp < arr[j-r]){
+//                while ( j-r >= 0 && ztemp < arr[j-r]){
 //                    arr[j] = arr[j-r];
 //                    j = j - r;
 //                }
-//                arr[j] = temp;
+//                arr[j] = ztemp;
 //            }
 //        }
         /***** 对应插入排序中优化版本2：最外层循环内，5个r需要重点注意****/

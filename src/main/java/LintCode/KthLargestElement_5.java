@@ -93,7 +93,7 @@ public class KthLargestElement_5 {
             }
             arr[high] = arr[low];
         }
-        arr[low] = temp;    // low==high,也可以arr[high] = temp;
+        arr[low] = temp;    // low==high,也可以arr[high] = ztemp;
         return low;
     }
 }

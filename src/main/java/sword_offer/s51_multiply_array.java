@@ -41,10 +41,10 @@ public class s51_multiply_array {
 //            B[i] = B[i - 1] * A[i - 1];
 //        }
 //        // 计算下三角
-//        int temp = 1;   // 假装这是最后一行的1
+//        int ztemp = 1;   // 假装这是最后一行的1
 //        for (int i = length - 2; i >= 0; i--) { // 这里是因为，在length-1的那一行，已经计算完，不再需要计算了
-//            temp = temp * A[i+1];
-//            B[i] = B[i] * temp;
+//            ztemp = ztemp * A[i+1];
+//            B[i] = B[i] * ztemp;
 //        }
 //        return B;
 //    }

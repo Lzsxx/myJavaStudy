@@ -30,27 +30,27 @@ public class InsertionSort {
 
         /*** 最初版本 ***/
 //        for (int i = 1; i < arr.length ; i++) {
-//            int temp = arr[i];
+//            int ztemp = arr[i];
 //            int index = i;
 //            for (int j = i; j > 0; j--){  //可以优化的地方，第二个循环其实不必走完，走到第一个temp大于前值的地方就可以停下，
 //                                            所以把判断移入进入循环的条件中，如下：
-//                if (temp < arr[j-1]){
+//                if (ztemp < arr[j-1]){
 //                    arr[j] = arr[j-1];
 //                    index = j - 1;
 //                }
 //            }
-//            arr[index] = temp;
+//            arr[index] = ztemp;
 //        }
 
         /***** 优化版本1 *****/
 //        for (int i = 1; i < arr.length ; i++) {
-//            int temp = arr[i];
+//            int ztemp = arr[i];
 //            int j = i;
-//            while (j-1 >= 0 && temp < arr[j-1]){
+//            while (j-1 >= 0 && ztemp < arr[j-1]){
 //                arr[j] = arr[j-1];
 //                j = j - 1;
 //            }
-//            arr[j] = temp;
+//            arr[j] = ztemp;
 //        }
         /***** 优化版本2 : 4个1需要重点注意*****/
         int i,j;
@@ -69,15 +69,15 @@ public class InsertionSort {
 //        public static void insertSort(int[] arr){
 //            for (int i = 1; i < arr.length; i++) {
 //                int j = i;
-//                int temp = arr[j];
+//                int ztemp = arr[j];
 //                for (; j - 1 >= 0; j--) {
-//                    if (arr[j - 1] > temp) {
+//                    if (arr[j - 1] > ztemp) {
 //                        arr[j] = arr[j - 1];
 //                    }else {
 //                        break;
 //                    }
 //                }
-//                arr[j] = temp;
+//                arr[j] = ztemp;
 //            }
 //        }
     }

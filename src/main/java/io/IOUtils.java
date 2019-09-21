@@ -49,7 +49,7 @@ public class IOUtils {
 
         int temp;
         while ((temp = bufferedInputStream.read())!= -1){
-            //System.out.print(temp);
+            //System.out.print(ztemp);
         }
         fileInputStream.close();
 

@@ -30,16 +30,16 @@ public class QuickSort {
 
     /***** 最初版--通过硬交换实现，由于多次swap读写内存，速度慢 *****/
 //    public static int getMiddle(int[] arr, int low, int high){
-//        int temp = arr[low];    // 取第一个数为阈值
+//        int ztemp = arr[low];    // 取第一个数为阈值
 //        int index = low;
 //
 //        while (low < high){
-//            while (low < high && arr[high] >= temp){
+//            while (low < high && arr[high] >= ztemp){
 //                high --;
 //            }
 //            swap(arr, high, index); // 如果是前面的while循环由于high = low了，也是由于high靠向了low,此时的index=low,high=low,所以index=low
 //            index = high;
-//            while (low < high && arr[low] <= temp){ //等于的就略过，比如第一个作为阈值的值
+//            while (low < high && arr[low] <= ztemp){ //等于的就略过，比如第一个作为阈值的值
 //                low++;
 //            }
 //            swap(arr, low, index);
@@ -62,7 +62,7 @@ public class QuickSort {
             }
             arr[high] = arr[low];
         }
-        arr[low] = temp;    // low==high,也可以arr[high] = temp;
+        arr[low] = temp;    // low==high,也可以arr[high] = ztemp;
         return low;
     }
 

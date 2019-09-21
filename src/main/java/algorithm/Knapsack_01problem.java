@@ -8,7 +8,8 @@ public class Knapsack_01problem {
         int capacity = 13;
         int[] value = {10,40,30,50};
         int[] weight = {2,4,6,3};
-        knapsack_01_path(value, weight, capacity);
+//        knapsack_01_path(value, weight, capacity);
+        knapsack_01(value, weight, capacity);
     }
     public static void knapsack_01(int[] value, int[] weight, int capacity){
         // 先申请数组，初始化第一行和第一列
