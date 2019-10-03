@@ -1,4 +1,4 @@
-package thread.sell_ticket;
+package Thread.sell_ticket;
 
  class TicketsRunnable implements Runnable{
     private volatile int ticketCount = 5;

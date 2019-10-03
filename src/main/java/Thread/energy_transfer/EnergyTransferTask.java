@@ -1,8 +1,4 @@
-package thread.energy_transfer;
-
-import javafx.scene.control.DatePicker;
-
-import java.util.concurrent.TransferQueue;
+package Thread.energy_transfer;
 
 public class EnergyTransferTask implements Runnable {
     // 共享的能量世界

@@ -1,4 +1,4 @@
-package thread.sell_ticket;
+package Thread.sell_ticket;
 
  class TicketsThread extends Thread{
     private String name;

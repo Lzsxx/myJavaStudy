@@ -1,4 +1,4 @@
-package thread.thread_pool;
+package Thread.thread_pool;
 
 /**
  * @Description: JavaStudy

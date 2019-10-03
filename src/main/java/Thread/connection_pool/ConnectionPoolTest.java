@@ -1,4 +1,4 @@
-package thread.connection_pool;
+package Thread.connection_pool;
 
 import java.sql.Connection;
 import java.sql.SQLException;

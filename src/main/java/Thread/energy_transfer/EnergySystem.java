@@ -1,8 +1,4 @@
-package thread.energy_transfer;
-
-import org.omg.PortableServer.THREAD_POLICY_ID;
-
-import javax.naming.InitialContext;
+package Thread.energy_transfer;
 
 public class EnergySystem {
     private final double[] energyBoxes;

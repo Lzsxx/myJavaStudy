@@ -1,4 +1,4 @@
-package thread.sui_army;
+package Thread.sui_army;
 
 public class Stage extends Thread {
     @Override

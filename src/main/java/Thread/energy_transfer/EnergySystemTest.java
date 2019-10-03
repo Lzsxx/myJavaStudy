@@ -1,4 +1,4 @@
-package thread.energy_transfer;
+package Thread.energy_transfer;
 
 public class EnergySystemTest {
     // 将要构建的能量世界中能量盒子的总数
