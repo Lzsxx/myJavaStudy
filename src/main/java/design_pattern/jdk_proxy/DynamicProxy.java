@@ -21,6 +21,11 @@ public class DynamicProxy implements InvocationHandler{
     }
 
 
+    /**
+     * proxy是动态生成的类
+     * method是Hello接口里的方法
+     * args是方法参数
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         before();

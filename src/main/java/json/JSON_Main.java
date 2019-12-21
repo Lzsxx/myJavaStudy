@@ -13,15 +13,15 @@
 // */
 //public class JSON_Main {
 //    public static void main(String[] args) {
-//        ObjectMapper mapper = new ObjectMapper();
+//        ObjectMapper dao = new ObjectMapper();
 //        String jsonString = "{\"name\":\"Mahesh\", \"age\":21}";
 //
 //        //map json to student
 //        try {
-//            Student student = mapper.readValue(jsonString, Student.class);
+//            Student student = dao.readValue(jsonString, Student.class);
 //            System.out.println(student);
 //
-//            jsonString = mapper.writeValueAsString(student);
+//            jsonString = dao.writeValueAsString(student);
 //            System.out.println(jsonString);
 //
 //        } catch (JsonParseException e) {

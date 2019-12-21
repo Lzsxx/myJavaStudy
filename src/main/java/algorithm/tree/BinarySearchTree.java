@@ -67,7 +67,7 @@ public class BinarySearchTree  {
 
         /** 以下是方法的具体实现* */
 
-    //// 下面是主要方法，主要有 insert , remove , contains, findMin, findMax,
+    //// 下面是主要方法，主要有 insertOne , remove , contains, findMin, findMax,
     // 其中，insert和remove会改变结构，返回都是BinaryNode, findXXX不改变结构，但本身要求返回BinaryNode
     // contains不改变结构，本身要求返回boolean
     private BinaryNode insert(int x, BinaryNode t ){

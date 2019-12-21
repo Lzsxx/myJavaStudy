@@ -389,8 +389,8 @@ public class RedBlackTree<E> {
             rbt.insert(55);
             rbt.insert(80);
             rbt.insert(90);
-//      rbt.insert(22);
-//      rbt.insert(5);
+//      rbt.insertOne(22);
+//      rbt.insertOne(5);
 //      rbt.delete(5);
 //      rbt.delete(51);
 //      rbt.delete(80);
