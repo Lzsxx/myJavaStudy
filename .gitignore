@@ -2,3 +2,4 @@
 /target/*
 /src/main/java/onlytest/*
 /src/main/target/*
+.idea/*
