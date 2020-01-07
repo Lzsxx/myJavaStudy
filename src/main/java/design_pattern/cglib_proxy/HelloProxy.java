@@ -29,9 +29,9 @@ public class HelloProxy implements MethodInterceptor {
      * MethodProxy methodProxy 是对应method的代理方法
      */
     @Override
-    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+    public Object intercept(Object proxy, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         before();
-        Object result = methodProxy.invokeSuper(o, objects);          // 正常情况
+        Object result = methodProxy.invokeSuper(proxy, objects);          // 正常情况
 //        Object result = methodProxy.invoke(new HelloImpl(), objects); // 也能运行，但是要指定具体的Hello接口的实现类，失去了灵活性，变成了静态代理
 //        Object result = method.invoke(new HelloImpl(), objects);      // 情况同上
 
