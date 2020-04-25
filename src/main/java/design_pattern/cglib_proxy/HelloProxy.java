@@ -23,7 +23,7 @@ public class HelloProxy implements MethodInterceptor {
     }
 
     /**
-     * Object o 是动态生成的代理类 HelloImpl$$EnhancerByCGLIB$$fe1ccb9c，say()方法被重写过
+     * Object proxy 是动态生成的代理类 HelloImpl$$EnhancerByCGLIB$$fe1ccb9c，say()方法被重写过
      * Method method 是HelloImpl里的方法say()
      * Object[] objects 是方法参数
      * MethodProxy methodProxy 是对应method的代理方法

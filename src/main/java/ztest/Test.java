@@ -8,26 +8,43 @@ import org.apache.commons.lang3.StringUtils;
  * @date:: 2019-12-30 09:30
  */
 public class Test{
-    private static final ThreadLocal<String> HOLDER = new ThreadLocal<>();
-    public static String getDbType() {
-        return HOLDER.get();
+    ThreadLocal<Long> longLocal = new ThreadLocal<Long>();
+    ThreadLocal<String> stringLocal = new ThreadLocal<String>();
+
+
+    public void set() {
+        longLocal.set(Thread.currentThread().getId());
+        stringLocal.set(Thread.currentThread().getName());
     }
 
-    public static void setDbType(String dbType) {
-        HOLDER.set(dbType);
+    public long getLong() {
+        return longLocal.get();
     }
 
-    public static void cleanDbHolder() {
-        HOLDER.remove();
+    public String getString() {
+        return stringLocal.get();
     }
-    public static void main(String[] args) {
-        final char c1 = '\u00A0';
-        System.out.println("\'" + c1 + "\'");
-        System.out.println(StringUtils.isBlank(Character.toString(c1)));
 
-        final char c2 = '\u0020';
-        System.out.println("\'" + c2 + "\'");
-        System.out.println(StringUtils.isBlank(Character.toString(c2)));
+    public static void main(String[] args) throws InterruptedException {
+        final Test test = new Test();
 
+
+        test.set();
+        System.out.println(test.getLong());
+        System.out.println(test.getString());
+
+
+        Thread thread1 = new Thread(){
+            public void run() {
+                test.set();
+                System.out.println(test.getLong());
+                System.out.println(test.getString());
+            };
+        };
+        thread1.start();
+        thread1.join();
+
+        System.out.println(test.getLong());
+        System.out.println(test.getString());
     }
 }

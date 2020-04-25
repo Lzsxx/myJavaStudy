@@ -1,6 +1,6 @@
-package InnerClassSingleton;
+package design_pattern.singleton;
 
-import singleton.InnerClassSingleton;
+import design_pattern.singleton.InnerClassSingleton;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -16,7 +16,7 @@ public class AttackTest {
     }
 
     public static void attack() {
-        Class<?> InnerClassSingleton = singleton.InnerClassSingleton.class;
+        Class<?> InnerClassSingleton = design_pattern.singleton.InnerClassSingleton.class;
         try {
             Constructor<?>[] constructors = InnerClassSingleton.getDeclaredConstructors();
             constructors[0].setAccessible(true);
