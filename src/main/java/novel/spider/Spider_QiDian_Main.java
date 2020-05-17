@@ -1,4 +1,4 @@
-package spider;
+package novel.spider;
 
 import java.io.*;
 import java.net.URL;
