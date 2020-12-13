@@ -1,7 +1,11 @@
 package WX.util;
 
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +17,51 @@ import org.slf4j.LoggerFactory;
  */
 public class CommonUtil {
     private static Logger log = LoggerFactory.getLogger(CommonUtil.class);
+
+    public static void writeToFile(String fileDir, String fileName, String content) throws FileNotFoundException {
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(fileDir,fileName), true)));
+
+        String time = getTime();
+
+        try {
+            out.write(content);
+            out.write("," + time);
+            out.write("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        IOUtils.closeQuietly(out);
+    }
+
+    public static void writeToFileCover(String fileDir, String fileName, String content) throws FileNotFoundException {
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(fileDir,fileName), false)));
+
+        try {
+            out.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        IOUtils.closeQuietly(out);
+    }
+
+    public static String readFile(String fileDir, String fileName) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileDir, fileName))));
+
+        String line = reader.readLine();
+
+        IOUtils.closeQuietly(reader);
+
+        return line.trim();
+    }
+
+    public static String getTime() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        String time = sdf.format(date);
+        return time;
+    }
 
 
 

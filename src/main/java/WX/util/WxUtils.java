@@ -4,6 +4,7 @@ import WX.vo.AccessToken;
 import WX.vo.JsapiTicket;
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;
+import net.sf.json.util.JSONUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,6 +71,25 @@ public class WxUtils {
             }
         }
         return jsapiTicket;
+    }
+
+    public static JSONObject getAccessTokenResp(String appid, String appsecret) {
+        AccessToken accessToken = null;
+        String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
+        // 发起GET请求获取凭证
+        JSONObject jsonObject = HttpUtils.httpsRequest(requestUrl, "GET", null);
+
+        return jsonObject;
+
+    }
+
+    public static JSONObject getJsapiTicketResp(String accessToken) {
+        JsapiTicket jsapiTicket = null;
+        String requestUrl = jsapi_ticket_url.replace("ACCESS_TOKEN", accessToken);
+        // 发起GET请求获取凭证
+        JSONObject jsonObject = HttpUtils.httpsRequest(requestUrl, "GET", null);
+
+        return jsonObject;
     }
 
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width" />
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>调用微信接口页面-airkiss</title>
+    <style>
+    </style>
+</head>
+
+<body>
+<div>即将自动跳转。。。</div>
+</body>
+<script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    // xhr.open('GET', 'https://www.f203.online/wx/sign');
+    // xhr.send(null);
+    xhr.onload = function(e) {
+        if (xhr.status === 200) {
+            // sign=JSON.parse(xhr.responseText)
+            wx.config({
+                beta: true, //开启内测接口调用，注入wx.invoke方法
+                debug: false, //关闭调试模式
+                appId: sign['appId'], //AppID
+                timestamp: sign['timestamp'], //时间戳
+                nonceStr: sign['nonceStr'], //随机串
+                signature: sign['signature'], //js-sdk签名
+                jsApiList: [
+                    // 所有要调用的 API 都要加到这个列表中
+                    'configWXDeviceWiFi'
+                ]
+            });
+            wx.ready(function() {
+                // 在这里调用 API
+                wx.invoke('configWXDeviceWiFi');
+            });
+            wx.error(function(res) {
+                alert("配置出错");
+            });
+        } else {
+            alert('请求签名失败！');
+        }
+    }
+    xhr.onerror = function(e) {
+        alert('请求失败'+e)
+    }
+</script>
+
+</html>
